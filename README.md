@@ -23,5 +23,5 @@ The students will prepare journal-style written reports on each of their observa
 or poster presentation on one of the projects.
 
 
-This github repository will contain starter code for the data reduction, and its wiki pages replace the original
-course webpage:  https://github.com/anjavdl/PHY517_AST443_Fall2016/wiki
+This github repository will contain starter code for the data reduction, and its wiki pages will (eventually) replace 
+the original course webpage:  https://github.com/anjavdl/PHY517_AST443_Fall2016/wiki
