@@ -22,3 +22,6 @@ assess the evaluator's ability to critically assess the quality of the other pro
 The students will prepare journal-style written reports on each of their observational projects and a final oral 
 or poster presentation on one of the projects.
 
+
+This github repository will contain starter code for the data reduction, and its wiki pages replace the original
+course webpage:  https://github.com/anjavdl/PHY517_AST443_Fall2016/wiki
