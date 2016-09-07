@@ -23,14 +23,15 @@ transits=numpy.loadtxt(input)
 # define the Ra, Dec pairs
 coords=SkyCoord(transits[:,0]*u.deg,transits[:,1]*u.deg, frame='icrs')
 
-# define the times
+# define the observing times
 times=Time(transits[:,2], format='jd')
 
 # do the transformation to AltAz
 aa = AltAz(location=observing_location, obstime=times)
 aacoords=coords.transform_to(aa)
 
+# specify output timeformat to be in UTC
 times.format='fits'
 
-
+# write output file
 numpy.savetxt(output,numpy.transpose([aacoords.az,aacoords.alt,times]), fmt="%.6f %.6f %.30s")
