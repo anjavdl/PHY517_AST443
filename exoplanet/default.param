@@ -1,0 +1,20 @@
+NUMBER                   # Running object number  
+X_IMAGE                  # Object position along x                                   [pixel]
+Y_IMAGE                  # Object position along y                                   [pixel]
+ALPHA_J2000              # Right ascension of barycenter (J2000)                     [deg]
+DELTA_J2000              # Declination of barycenter (J2000)                         [deg]
+FLUX_APER                # Flux vector within fixed circular aperture(s)             [count]
+FLUXERR_APER             # RMS error vector for aperture flux(es)                    [count]
+FLUX_RADIUS              # Fraction-of-light radii                                   [pixel]
+FWHM_IMAGE               # FWHM assuming a gaussian core                             [pixel]
+BACKGROUND               # Background at centroid position                           [count]
+THRESHOLD                # Detection threshold above background                      [count]
+FLUX_MAX                 # Peak flux above background                                [count]
+ISOAREA_IMAGE            # Isophotal area above Analysis threshold                   [pixel**2]
+A_IMAGE                  # Profile RMS along major axis                              [pixel]
+B_IMAGE                  # Profile RMS along minor axis                              [pixel]
+THETA_IMAGE              # Position angle (CCW/x)                                    [deg]
+FLAGS                    # Extraction flags                                         
+
+
+
