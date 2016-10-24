@@ -8,8 +8,7 @@
 #                                                                                        #
 #   There are three functions defined below:                                             #
 #   1) AverageDark(darkfiles), which creates and returns the master dark image           #
-#   2) AverageFlat(flatfiles,masterdark) which creats and returns the master dark        #
-#      subtracted flat image                                                             #
+#   2) AverageFlat(flatfiles,masterdark) which creats and returns the master flatfield   #                                                            #
 #   3) ScienceExposure(rawscidata,masterdark,masterflat), which applied the master       #
 #      dark and flat images to a raw science image                                       #
 #                                                                                        #
