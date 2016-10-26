@@ -1,0 +1,934 @@
+% NPROP30.STY -- NOAO observing proposal form.
+
+% First, identifying information about this style file.
+
+\def\revtex@ver{3.0}		% Version number of this file.
+\def\revtex@date{1 Aug 2016}	% Revision date.
+\def\revtex@author{DJB/CDB}	% This file's author.
+\def\revtex@org{NOAO}		% Sponsoring organization.
+\def\revtex@genre{observing proposal}	% Document "type".
+
+% \ifundefined sequence
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+
+% maximum number of Co-Investigators to print.
+% can be changed in form, e.g. \setmaxnumcois{10}
+\newcount\maxnumcois \maxnumcois=24
+\def\setmaxnumcois#1{\gdef\maxnumcois{#1}}
+
+%
+\def\geminidata#1#2{}{}
+
+
+\def\revtex@pageid{\xdef\@thefnmark{\null}
+    \@footnotetext{\revtex@org\space
+    \revtex@genre\space \LaTeX\ macros v\revtex@ver.}}
+
+\let\ltx@enddoc=\enddocument
+\def\enddocument{\vfill\revtex@pageid\ltx@enddoc}
+
+% Page design/layout macros.  Page sizes are at the end of the file.
+
+\def\baselinestretch{0.98}	% Tighten up baselines a little.
+
+\def\ps@kpprophead{\def\@oddfoot{}\def\@evenfoot{}
+    \def\@oddhead{\hbox to\textwidth{\small\sl \prop@phead
+	\ifx\@empty\@rcptdate\phantom{, received Dec 31 1999}
+        \else, received \@rcptdate\fi
+	\hfill Page \thepage
+        \hfill \prop@pidbox}}\let\@evenhead\@oddhead
+    \def\chaptermark##1{\markright {{\ifnum \c@secnumdepth>\m@ne
+	\@chapapp\ \thechapter. \ \fi ##1}}}}
+
+
+\def\prop@idbox{ \ifx\@empty\@propid{
+	\hfill\phantom{\framebox[1.7in][c]{\LARGE\bf/}}
+    }\else{
+	\hfill\framebox[1.7in][c]{\LARGE\bf \@propid/\@sciencecategorynum }
+    }\fi
+}
+
+\def\prop@oldidbox{ \ifx\@empty\@oldpropid{
+	\phantom{\framebox[2.2in][c]{\bf/}}
+    }\else{
+	\framebox[2.2in][c]{\bf Resubmission of \@oldpropid }
+    }\fi
+}
+
+
+\def\prop@pidbox{ \ifx\@empty\@propid{
+	\hfill\framebox[1.2in][c]{{\small\sl\ This box blank.}
+        \phantom{\large\bf/}}
+    }\else{
+	\hfill\framebox[1.2in][c]{\large\bf \@propid/\@sciencecategorynum}
+    }\fi
+}
+
+\def\@thesistrue{Y}
+\def\@issurvey{Survey}
+
+\def\prop@info{\begin{tabbing}
+    % first line
+    \hbox to.34\textwidth{\large\bf\prop@head\hfill}%
+    \hbox to.30\textwidth{%
+	\ifx\@proposaltype\@empty{\hfill}%
+	\else{\hfill{\it \@proposaltype\ proposal}\hfill}\fi}%
+    \hbox to.36\textwidth{%
+        {\bf Panel:} \hspace{0.21in} 
+	\ifx\@panelassignment\@empty{\instruct@font For office use.}%
+	\else{\@panelassignment}\fi%
+	\hfill}%
+    \\
+
+    % second line
+    \hbox to.34\textwidth{%
+	\ifx\@rcptdate\@empty{\it Date:\/} \today%
+	\else{Date received:} \@rcptdate\fi\hfill}%
+    \hbox to.30\textwidth{%
+    	\ifx\@thesis\@thesistrue{\hfill{\it Thesis}\hfill}%
+	\else{\hfill}\fi}%
+    \hbox to.36\textwidth{{\bf Category:} \@sciencecategory\hfill}%
+\end{tabbing}}
+
+
+\def\ques@font{\it}
+\def\instruct@font{\small\sl}
+
+% Proposal ID and receipt date will be filled in at NOAO.
+%
+%    \proposalid{NUMBER}
+%    \received{DATE}
+
+\def\received#1{\gdef\@rcptdate{#1}} \received{}
+\def\proposalid#1{\gdef\@propid{#1}} \proposalid{}
+\def\pastid#1{\gdef\@oldpropid{#1}} \pastid{}
+\def\observatory#1{\gdef\@observatory{#1}} \observatory{}
+\def\proposaltype#1{\gdef\@proposaltype{#1}} \proposaltype{}
+\def\thesis#1{\gdef\@thesis{#1}} \thesis{}
+\def\sciencecategory#1{\gdef\@sciencecategory{#1}} \sciencecategory{}
+\def\sciencecategorynum#1{\gdef\@sciencecategorynum{#1}} \sciencecategorynum{}
+\def\panelassignment#1{\gdef\@panelassignment{#1}} \panelassignment{}
+
+% Below is the markup that the observing team needs to supply.
+% Instructions for filling in the form using these commands are in
+% a template proposal form file as LaTeX comments.
+
+\def\prop@head{NOAO Observing Proposal}
+\def\prop@phead{NOAO Proposal}
+
+\def\title#1{
+    \vspace*{-6\headheight}\prop@oldidbox  \prop@idbox
+    \vspace*{0.5in}
+    \prop@info\par
+    \vspace*{0.1in}
+    \def\@savetitle{#1}\ifx\@empty\@savetitle
+    \makebox[\textwidth]{\Large{\bf TITLE:} \hrulefill}\par
+    \makebox[\textwidth]{\hrulefill}\par
+    \else{\LARGE\bf\@savetitle}\fi
+}
+    
+
+\def\abstract{\par\vspace{5ex}\vbox to4.00in\bgroup\noindent
+{\bf Abstract of Scientific Justification}
+{\small\sl (will be made publicly available for accepted proposals)}{\bf :}\\
+\parindent\z@}
+\let\ltx@endabstract=\endabstract
+\def\endabstract{\ltx@endabstract\vfil\egroup\vspace{\fill}}
+
+% Observer identification.  These items are buffered so that they can be
+% specified in any order, subject only to the restriction that the observer
+% name be given first.  The same commands are used to identify the PI as
+% well as the co-investigators; the formatting is controlled separately,
+% and differences arise in the use of LaTeX environments, below.
+%
+% Each member of the observing team is identified with several bits of
+% information.
+%
+%    \name{OBSERVER NAME}
+%    \affil{AFFILIATION}
+%    \address{POSTAL ADDRESS}
+%    \email{EMAIL ADDRESS}
+%    \phone{TELEPHONE NUMBER}
+%    \fax{FAX NUMBER}
+%    \invstatus{P, T, G, U, or O}
+%
+% Note that the fax number does not print on the form.  There is not
+% enough room on the cover page the way it is currently laid out.
+
+\def\name#1{\gdef\obs@name{#1}}
+\def\affil#1{\gdef\obs@affil{#1}}
+\def\department#1{\gdef\obs@department{#1}}
+\def\address#1{\gdef\obs@address{#1}}
+\def\citycode#1{\gdef\obs@citycode{#1}}
+\def\city#1{\gdef\obs@city{#1}}
+\def\state#1{\gdef\obs@state{#1}}
+\def\zipcode#1{\gdef\obs@zipcode{#1}}
+\def\country#1{\gdef\obs@country{#1}}
+\def\email#1{\gdef\obs@email{#1}}
+\def\phone#1{\gdef\obs@phone{#1}}
+\def\fax#1{\gdef\obs@fax{#1}}
+\def\invstatus#1{\gdef\obs@invstatus{#1}}
+
+\def\clear@obs{	\gdef\obs@name{} \gdef\obs@affil{} \gdef\obs@department{}
+		\gdef\obs@address{} \gdef\obs@citycode{} \gdef\obs@city{} 
+		\gdef\obs@state{} \gdef\obs@zipcode{} \gdef\obs@country{} 
+		\gdef\obs@email{}  \gdef\obs@phone{}
+		\gdef\obs@fax{} \gdef\obs@invstatus{} }
+
+% Formatting of PI and CO-I data are controlled by the next two macros.
+
+% Now here is some dicey stuff.  We want to solve a variety of problems with
+% one form and one set of macros, stemming from the need to print rational
+% forms, whether or not anything has been filled in electronically.  In
+% other words, if somebody runs a *blank* electronic form through LaTeX,
+% a usable form should emerge from the laser printer, with blanks in the
+% appropriate places, etc.  If the form is filled in electronically, the
+% rules should be replaced with the stuff the user fills in.
+%
+% Fine.  Except that real estate on the first page is quite limited, and
+% we also need a way of letting the user who fills in information with the
+% editor know when he/she is being verbose.  We achieve this by forcing
+% certain pieces of information into boxes of fixed size.  These contain
+% either an \hrulefill, or text supplied by the author.  If too much text
+% is provided, TeX will complain about the overfull hbox.
+
+\def\yn@rule{\rule{0.3in}{0.4pt}}
+
+
+\def\prt@invline{
+    \hbox to.28\textwidth{\obs@tag\space%
+	\ifx\@empty\obs@name\hrulefill\space\else\obs@name\hfill\fi}%
+    \hbox to.12\textwidth{{\bf Status:}\space%
+	\ifx\@empty\obs@invstatus\hrulefill\else\obs@invstatus\fi\hfill}%
+    \hbox to.60\textwidth{{\bf Affil.:}\space%
+	\ifx\@empty\obs@affil\hrulefill\else\obs@affil\hfill\fi}
+}
+
+\def\prt@piblock{\begin{tabbing}
+    % first line
+    \prt@invline
+    \\
+
+    % second line
+    \hbox to1.00\textwidth{%
+	\def\@blankadd{1}%
+	\ifx\@empty\obs@department\else\def\@blankadd{0}\fi
+	\ifx\@empty\obs@address\else\def\@blankadd{0}\fi
+	\ifx\@empty\obs@city\else\def\@blankadd{0}\fi
+	\ifx\@empty\obs@state\else\def\@blankadd{0}\fi
+	\ifx\@empty\obs@zipcode\else\def\@blankadd{0}\fi
+	\ifx\@empty\obs@country\else\def\@blankadd{0}\fi
+	\ifnum\@blankadd=1
+	    {\bf Address:\hrulefill}%
+	\else
+	    \obs@department\ifx\@empty\obs@department\else,\space\fi
+	    \obs@address\ifx\@empty\obs@address\else,\space\fi
+	    \obs@citycode\ifx\@empty\obs@citycode\else\space\fi
+	    \obs@city\ifx\@empty\obs@city\else,\space\fi
+	    \obs@state\space\obs@zipcode\space\obs@country\hfill
+        \fi}
+    \\
+
+    % third line
+    \hbox to.46\textwidth{%
+	Email:\space%
+	\ifx\@empty\obs@email\hrulefill\else\obs@email\hfill\fi}%
+    \hbox to.54\textwidth{%
+	\space\space%
+	Phone:\space%
+	    \ifx\@empty\obs@phone\hrulefill\else\obs@phone\hfill\fi%
+	\space\space%
+	FAX:\space%
+	    \ifx\@empty\obs@fax\hrulefill\else\obs@fax\fi}%
+    \\
+    \\
+
+    % separator
+    \hbox to1.0\textwidth{\hfill\rule[10pt]{4.5in}{0.01in}\hfill}%
+    \end{tabbing}}
+
+\def\prt@coiblock{\vspace*{0.1cm}\begin{tabbing}\prt@invline\end{tabbing}}
+\def\prt@xcoiblock{\marginpar{\tiny\obs@name}}
+
+% Principal investigator and co-investigator environments.
+
+% Note that after the first three CoI blocks, I quit printing the CoI
+% information.  This is not especially nice.  It would be better if the
+% names (and possibly the grad student status) of the additional CoIs
+% were listed on the proposal form someplace.  Since the cover page is
+% so full at this point, my sense is that these would have to be collected
+% into end notes somehow.  This would be hard to program, and so it should
+% be deemed a very necessary requirement.  Perhaps some other display
+% format would be acceptable, one that would require less programming.
+
+\newcounter{CoI}
+\def\obs@tag{{\bf CoI:}}
+
+\newenvironment{PI}{\clear@obs}{\def\obs@tag{{\bf PI:}}\prt@piblock}
+
+\newenvironment{CoI}{\clear@obs\stepcounter{CoI}}{\ifnum\c@CoI>\maxnumcois
+    \prt@xcoiblock\else\vspace*{-6.3ex}\prt@coiblock\fi}
+
+%
+
+\def\chk@setblank#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+    \def\@kptmpa{\yn@rule}\fi\mbox{\@kptmpa}}
+
+\def\chk@setblankline#1{\def\@kptmpa{#1}\ifx\@empty\@kptmpa
+    \def\@kptmpa{\rule{\textwidth}{0.4pt}}\fi
+    \par\makebox[\textwidth][l]{\@kptmpa}}
+
+
+\def\undates@head {{\bf Scheduling constraints and non-usable dates} %
+{\it (up to six lines).}}
+
+\def\unusabledates#1{\undates@head\par\def\@kptmpa{#1}
+    \ifx\@empty\@kptmpa{\par
+	\makebox[\textwidth]{\hrulefill}
+	\makebox[\textwidth]{\hrulefill}
+	\makebox[\textwidth]{\hrulefill}
+	\makebox[\textwidth]{\hrulefill}
+	\makebox[\textwidth]{\hrulefill}
+	\makebox[\textwidth]{\hrulefill}\par}
+    \else{
+	\@kptmpa
+    }\fi
+}
+
+
+
+\def\ra@head {{\par\bf R.A. range of principal targets (hours): }}
+\def\dec@head {{\par\bf Dec. range of principal targets (degrees): }}
+%\def\pid@head {{\par\bf Previous ID of this observing proposal: }}
+
+\def\targetsra#1{\ra@head #1}
+\def\targetsdec#1{\dec@head #1}
+%\def\pastid#1{\pid@head #1}
+
+\def\pp@head {{\par\bf Proprietary Period: }}
+\def\proprietaryperiod#1{\pp@head #1}
+
+
+% Observing run environment.  This is used to describe observing parameters
+% in a very succinct manner, to be presented in an abbreviated form on the
+% first page.  I have chosen to use multiple \begin{obsrun}-\end{obsrun}
+% groupings, as opposed to a repeating set of parameter identifying macros.
+
+\newcounter{obsrun}
+\newenvironment{obsrun}{\stepcounter{obsrun}}%
+    {\ifnum\c@obsrun=6\par\prt@obsruns\par\fi}
+
+% Observing run parameters to be specified by the investigators.
+%
+%   \telesope{IDENT}
+%   \instrument{IDENT(S)}
+%   \numnights{NUMBER}
+%   \lunardays{NUMBER}
+%   \optimaldates{RANGE}
+%   \acceptabledates{RANGE}
+
+% These are pretty amazing-looking.  They are fake "arrays", actually.
+
+\def\telescope#1{\global\@namedef{obs\@Alph{\c@obsrun}@telid}{#1}}
+\def\instrument#1{\global\@namedef{obs\@Alph{\c@obsrun}@inst}{#1}}
+\def\numnights#1{\global\@namedef{obs\@Alph{\c@obsrun}@numnights}{#1}}
+\def\lunardays#1{\global\@namedef{obs\@Alph{\c@obsrun}@lunardays}{#1}}
+\def\optimaldates#1{\global\@namedef{obs\@Alph{\c@obsrun}@optdates}{#1}}
+\def\acceptabledates#1{\global\@namedef{obs\@Alph{\c@obsrun}@accdates}{#1}}
+
+\def\obsrun@head{Summary of observing runs requested for this project}
+\def\orth@font{\small}
+
+\def\prt@obsruns{\begin{center}{\bf\obsrun@head}\\[1ex]
+    \setcounter{obsrun}{1}
+    \begin{tabular}{|c||l|l|c|c|c|c|}
+    \multicolumn{1}{c}{\orth@font Run} &
+    \multicolumn{1}{c}{\orth@font Telescope} &
+    \multicolumn{1}{c}{\orth@font Instrument} &
+    \multicolumn{1}{c}{\orth@font No. Nights} &
+    \multicolumn{1}{c}{\orth@font Moon} &
+    \multicolumn{1}{c}{\orth@font Optimal months} &
+    \multicolumn{1}{c}{\orth@font Accept. months}\\
+    \hline
+    1 & \obsA@telid & \obsA@inst & \obsA@numnights & 
+    \obsA@lunardays & \obsA@optdates & \obsA@accdates\\
+    \hline
+    2 & \obsB@telid & \obsB@inst & \obsB@numnights & 
+    \obsB@lunardays & \obsB@optdates & \obsB@accdates\\
+    \hline
+    3 & \obsC@telid & \obsC@inst & \obsC@numnights & 
+    \obsC@lunardays & \obsC@optdates & \obsC@accdates\\
+    \hline
+    4 & \obsD@telid & \obsD@inst & \obsD@numnights & 
+    \obsD@lunardays & \obsD@optdates & \obsD@accdates\\
+    \hline
+    5 & \obsE@telid & \obsE@inst & \obsE@numnights & 
+    \obsE@lunardays & \obsE@optdates & \obsE@accdates\\
+    \hline
+    6 & \obsF@telid & \obsF@inst & \obsF@numnights & 
+    \obsF@lunardays & \obsF@optdates & \obsF@accdates\\
+    \hline
+    \end{tabular}
+    \end{center}}
+
+
+% The scientific justification and the proposed observing program are
+% typeset (printed) as they are specified by the author.  Specific
+% observations are summarized in the "obsrun" environment (above).
+%
+%    \sciencejustification
+%    \expdesign
+%    \otherfacilities
+%    \manplan
+%    \whyctio
+%    \thepast
+
+\newenvironment{references}{\subsubsection*{References}}{\relax}
+\let\reference=\par
+
+\def\propsection{\@startsection{section}{1}{\z@}
+    {7pt plus 4pt minus 2pt}{-1em}{\normalsize\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}
+    {-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+
+\def\invest@head{{\instruct@font List the name, status, and current
+affiliation for all investigators.  The status code of ``P'' should be used for all
+investigators with a Ph.D. or equivalent degree.  For graduate students, use
+``T'' if this proposal is a significant part of their thesis project, otherwise 
+use ``G''.\par}}
+
+\def\justif@head{{\instruct@font Be sure to include overall significance
+    to astronomy. For standard proposals limit text to one page with 
+    figures, 
+    captions and references on no more than two additional pages.\par}}
+
+\def\feas@head{{\instruct@font 
+\ifx\@proposaltype\@issurvey{
+    Describe the survey experimental design and the observations planned 
+    in detail.  Justify choice of telescope, instrument, and sensitivity 
+    goals in terms of the survey science goals.  A key part of the survey 
+    proposal process is to justify the total duration of the program both 
+    in terms of the number of nights and the number and distribution of 
+    observing runs required.  Please show explicitly how on-target exposure 
+    time, setup, and calibration requirements determine these parameters. 
+    {\it Please do not include any allowance for bad weather.} Based on a 
+    clear understanding of your observational strategy as outlined in 
+    this section, we will evaluate the need for augmenting the allocation 
+    to allow for bad weather.}
+\else{
+    Describe your overall observational program.
+    How will these observations contribute toward the accomplishment
+    of the goals outlined in the science justification?
+    If you've requested long-term status, justify why this is necessary
+    for successful completion of the science. 
+    (limit text to one page)}\fi
+}\par}
+
+
+
+
+\def\mplan@head{{\instruct@font
+Describe the overall organizational plan for conducting the proposed survey,
+including data reduction and analysis, preparation of survey deliverables,
+and staffing requirements.
+List the roles and responsibilities of the Co-Is with their anticipated time commitments directed to achieving the goals of the survey. 
+You may also wish to detail external sources
+of support that will be used in the program.  Please detail any use
+of non-NOAO observational facilities that are required to achieve the
+overall goals of the survey program.
+    \par}}
+
+\def\ofac@head{{\instruct@font (1) Describe how the proposed observations 
+    complement data from
+    non-NOAO facilities.  For each of these other facilities, indicate 
+    the nature of the observations (yours or those of others), and 
+    describe the importance of the observations proposed here in the 
+    context of the entire program. (2) Do you currently have a grant 
+    that would provide resources to support the data processing, analysis, 
+    and publication of the observations proposed here?"
+    \par}}
+
+\def\whyctio@head{{\instruct@font (For CTIO proposals only.)
+    Explain why access to the southern hemisphere is needed to achieve your
+    scientific goals.\par}}
+
+\def\dataacc@head{{\instruct@font  Describe the data products (reduced 
+observations, single or stacked images, spectra, object catalogues, and 
+so on) to be releases, as well as the timeline and mechanism of their 
+release to the community.  Please differentiate between intermediate 
+products  developed during the execution of the survey versus the 
+final products likely to be produced after the full observations 
+have been obtained.\par}}
+
+\def\ltd@head{{\instruct@font If you are requesting long term status, 
+    list the observing runs (telescope, instrument, number of nights) 
+    requested in subsequent semesters to complete the project. 
+    \par}}
+
+\def\specreq@head{{\instruct@font Describe briefly any special or 
+    non-standard usage of instrumentation.\par}}
+
+\def\techjust@head{{\instruct@font Describe the observations to be made during
+    this observing run.  Justify the specific telescope, the number of nights,
+    the instrument, and the lunar phase.  List objects, 
+    coordinates, and magnitudes (or surface brightness, if appropriate)
+    in the Target Tables section below (required for queue and Gemini runs).\par}}
+
+\def\past@head{{\instruct@font List allocations of telescope time on 
+    facilities available through NOAO to the PI during the last 2 years 
+    for regular proposals, and at any time in the past for survey proposals 
+    (including participation of the PI as a Co-I on previous NOAO surveys), 
+    together with the current status of the data (cite publications where 
+    appropriate).  Mark with an asterisk those allocations of time related 
+    to the current proposal.  Please include original proposal semesters 
+    and ID numbers when available.\par}}
+
+\def\investigators{\newpage\propsection{\fbox{Investigators}}
+    \invest@head}
+\def\sciencejustification{\newpage\propsection{\fbox{Scientific Justification}}
+    \justif@head}
+\def\expdesign{\newpage\propsection{\fbox{Experimental Design}}\feas@head}
+%\def\sexpdesign{\newpage\propsection{\fbox{Experimental Design}}\sfeas@head}
+\def\manplan{\vfill\propsection{\fbox{Management Plan}}\mplan@head}
+\def\otherfacilities{\vfill\propsection{\fbox{Use of Other Facilities or Resources}}\ofac@head}
+\def\longtermdetails{\vfill\propsection{\fbox{Long-term Details}}\ltd@head}
+\def\dataaccess{\vfill\propsection{\fbox{Release of Data}}\dataacc@head}
+\def\whyctio{\vfill\propsection{\fbox{Why CTIO?}}\whyctio@head}
+\def\specialrequest{\propsection{\fbox{Special Instrument Requirements}}
+    \specreq@head}
+\def\thepast{\vfill\propsection{\fbox{Previous Use of NOAO Facilities}}
+    \past@head}
+\def\technicaldescription{\propsection{\fbox{Technical Description}}
+    \techjust@head}
+
+\def\relatedwork#1{\fbox{$\star$}\space#1}
+
+
+% RUN DETAILS PAGE
+
+\def\cleart@obsi {
+    \gdef\obs@filters{} \gdef\obs@grating{} \gdef\obs@order{} 
+    \gdef\obs@crossdisperser{} \gdef\obs@slit{} \gdef\obs@multislit{}
+    \gdef\obs@wstart{} \gdef\obs@wend{} \gdef\obs@cable{} 
+    \gdef\obs@corrector{} \gdef\obs@collimator{} \gdef\obs@adc{}
+    \gdef\obs@dispersers{} \gdef\obs@focalplaneunits{}
+    \gdef\obs@adaptiveoptics{} \gdef\obs@cameras{}
+    \gdef\obs@disperserorders{} \gdef\obs@polarimetry{}
+    \gdef\obs@crossdispersers{} \gdef\obs@dichroics{}
+    \gdef\obs@filtersbluechan{} \gdef\obs@filtersredchan{}
+    \gdef\obs@occultingdisks{}
+    
+}
+
+\def\filters#1{\gdef\obs@filters{#1}}
+\def\grating#1{\gdef\obs@grating{#1}}
+\def\order#1{\gdef\obs@order{#1}}
+\def\crossdisperser#1{\gdef\obs@crossdisperser{#1}}
+\def\slit#1{\gdef\obs@slit{#1}}
+\def\multislit#1{\gdef\obs@multislit{#1}}
+\def\wstart#1{\gdef\obs@wstart{#1}}
+\def\wend#1{\gdef\obs@wend{#1}}
+\def\cable#1{\gdef\obs@cable{#1}}
+\def\corrector#1{\gdef\obs@corrector{#1}}
+\def\collimator#1{\gdef\obs@collimator{#1}}
+\def\adc#1{\gdef\obs@adc{#1}}
+\def\adaptiveoptics#1{\gdef\obs@adaptiveoptics{#1}}
+\def\cameras#1{\gdef\obs@cameras{#1}}
+\def\dispersers#1{\gdef\obs@dispersers{#1}}
+\def\focalplaneunits#1{\gdef\obs@focalplaneunits{#1}}
+\def\cameras#1{\gdef\obs@cameras{#1}}
+\def\disperserorders#1{\gdef\obs@disperserorders{#1}}
+\def\polarimetry#1{\gdef\obs@polarimetry{#1}}
+\def\crossdispersers#1{\gdef\obs@crossdispersers{#1}}
+\def\dichroics#1{\gdef\obs@dichroics{#1}}
+\def\filtersbluechan#1{\gdef\obs@filtersbluechan{#1}}
+\def\filtersredchan#1{\gdef\obs@filtersredchan{#1}}
+\def\occultingdisks#1{\gdef\obs@occultingdisks{#1}}
+
+\def\runid#1#2{
+    \vfill
+    \newpage
+    \begin{center}
+    {\large\bf Observing Run Details for Run #1: #2}
+    \end{center}
+}
+
+\def\ic@font{\footnotesize}
+\def\gic@font{\bf}
+\newenvironment{configuration}{\cleart@obsi}{
+    \vfill
+    \footnotesize
+    \begin{center}\fbox{\large\bf Instrument Configuration}\end{center}
+    \begin{tabbing}
+    \hbox to0.35\textwidth{{\ic@font Filters: }\obs@filters\hfill}
+    \hbox to0.30\textwidth{{\ic@font Slit: }\obs@slit\hfill}
+    \hbox to0.35\textwidth{{\ic@font Fiber cable: }\obs@cable\hfill}
+    \\
+    \hbox to0.35\textwidth{{\ic@font Grating/grism: }\obs@grating\hfill}
+    \hbox to0.30\textwidth{{\ic@font Multislit: }\obs@multislit\hfill}
+    \hbox to0.35\textwidth{{\ic@font Corrector: }\obs@corrector\hfill}
+    \\
+    \hbox to0.35\textwidth{{\ic@font Order: }\obs@order\hfill}
+    \hbox to0.30\textwidth{{\ic@font $\lambda_{start}$: }
+	\obs@wstart\hfill}
+    \hbox to0.35\textwidth{{\ic@font Collimator: }\obs@collimator\hfill}
+    \\
+    \hbox to0.35\textwidth{{\ic@font Cross disperser: }
+	\obs@crossdisperser\hfill}
+    \hbox to0.30\textwidth{{\ic@font $\lambda_{end}$:\hspace{4pt} }
+	\obs@wend\hfill}
+    \hbox to0.35\textwidth{{\ic@font Atmos.~disp.~corr.: }
+	\obs@adc\hfill}
+    \end{tabbing}
+    \vfill
+}
+
+\def\@bandthreetrue{Y}
+\def\gembandthree#1{\gdef\@gembandthree{#1}}
+\def\gbtnumhours#1{\gdef\@gbtnumhours{#1}}
+\def\gbtnumhoursmin#1{\gdef\@gbtnumhoursmin{#1}}
+\def\gbtimagequality#1{\gdef\@gbtimagequality{#1}}
+\def\gbtskybackground#1{\gdef\@gbtskybackground{#1}}
+\def\gbtwatervapor#1{\gdef\@gbtwatervapor{#1}}
+\def\gbtcloudcover#1{\gdef\@gbtcloudcover{#1}}
+\def\gbtcomment#1{\gdef\@gbtcomment{#1}}
+
+\newenvironment{resources}{\cleart@obsi}{
+
+    \vfill
+    \begin{center}\fbox{\large\bf Band 3 Information}\end{center}
+	\medskip
+	{\bf Consider for Band 3?}  ~~~\@gembandthree\\\mbox{}
+     	\ifx\@gembandthree\@bandthreetrue{ 
+
+	{\bf Requested time for a band 3 allocation:}
+		~~~~\@gbtnumhours\\\mbox{}
+
+	{\bf Minimum required time for a usable band 3 allocation:}
+		~~~~\@gbtnumhoursmin\\\mbox{}
+
+	{\bf Band 3 Consideration Comments (50 words):\hfill}\\\mbox{}
+	\@gbtcomment
+
+	}
+	\else
+	\fi
+
+    \vfill
+    \footnotesize
+    \begin{center}\fbox{\large\bf Instrument Resources}\end{center}
+    {\gic@font AO: }\obs@adaptiveoptics\\
+    {\gic@font Cameras: }\obs@cameras\\
+    {\gic@font Cross Dispersers: }\obs@crossdispersers\\
+    {\gic@font Dichroics: }\obs@dichroics\\
+    {\gic@font Filters: }\obs@filters\\
+    {\gic@font Filters Blue Channel: }\obs@filtersbluechan\\
+    {\gic@font Filters Red Channel: }\obs@filtersredchan\\
+    {\gic@font Dispersers: }\obs@dispersers\\
+    {\gic@font Disperser Orders: }\obs@disperserorders\\
+    {\gic@font Focal Plane Units: }\obs@focalplaneunits\\
+    {\gic@font Occulting Disks: }\obs@occultingdisks\\
+    {\gic@font Polarimetry: }\obs@polarimetry
+    \vfill
+}
+
+
+\def\obs@head{Target Table for \@nameuse{instrname@\@instrid}}
+
+\def\@instrid{default}
+\newenvironment{targettable}[1]{\cleart@obst%
+    \def\@instrname{#1}\def\obs@list{}}%
+    {\vfill\pagebreak[3]\begin{center}\small\bf\obs@head\\[1.8ex]%
+    \footnotesize\tabcolsep2\p@%
+    \nopagebreak[4]\samepage%
+    \begin{tabular}{\@nameuse{pream@default}}%
+    \@nameuse{obshead@\@instrid}\\\hline\\[-1.8ex]%
+    \obs@list\end{tabular}\end{center}}
+
+\newenvironment{geminitargettable}[1]{\cleart@gobst%
+    \def\@instrname{#1}\def\gobs@list{}}%
+    {\vfill\pagebreak[3]\begin{center}\small\bf\obs@head\\[1.8ex]%
+    \footnotesize\tabcolsep2\p@%
+    \nopagebreak[4]\samepage%
+    \begin{tabular}{\@nameuse{pream@gemini}}%
+    \@nameuse{obshead@gemini}\\\hline\\[-1.8ex]%
+    \gobs@list\end{tabular}\end{center}}
+
+
+
+% Observing parameters.  Not all of these are needed for each instrument
+% combination.
+%
+%    \objid{OBJECT ID}
+%    \object{OBJECT NAME}
+%    \ra{RIGHT ASCENSION}
+%    \dec{DECLINATION}
+%    \epoch{COORDINATE EPOCH}
+%    \magnitude{MAGNITUDE}
+%    \filter{FILTER}
+%    \exptime{EXPOSURE TIME}
+%    \nexposures{NUMBER OF EXPOSURES}
+%    \moondays{DAYS FROM NEW MOON}
+%    \skycond{SKY CONDITION}
+%    \seeing{SEEING LIMIT}
+%    \obscomment{COMMENT}
+
+\def\cleart@obst {
+    \gdef\obs@objid{} \gdef\obs@object{} \gdef\obs@ra{} \gdef\obs@dec{}
+    \gdef\obs@epoch{} \gdef\obs@magnitude{} \gdef\obs@filter{} 
+    \gdef\obs@exptime{} \gdef\obs@nexposures{} \gdef\obs@moondays{}
+    \gdef\obs@skycond{} \gdef\obs@seeing{} \gdef\obs@obscomment{}
+}
+
+\def\cleart@gobst {
+    \gdef\obs@objid{} \gdef\obs@object{} \gdef\obs@ra{} \gdef\obs@dec{}
+    \gdef\obs@epoch{} \gdef\obs@magnitude{} 
+    \gdef\obs@obstime{} 
+    \gdef\obs@guidestars{} 
+    \gdef\obs@skybackground{} \gdef\obs@watervapor{}
+    \gdef\obs@cloudcover{} \gdef\obs@imagequality{}
+    \gdef\obs@gemcomment{}
+}
+
+\def\cleart@gobsline {
+    \gdef\obs@guidestars{} \gdef\obs@gemcomment{}
+}
+
+
+\def\obsblock@add{
+    \ifx\obs@list\@empty
+        \@temptokena=\expandafter{\obs@list}
+    \else \@temptokena=\expandafter{\obs@list\\}\fi
+    \xdef\obs@list{\the\@temptokena\@nameuse{obsblock@\@instrid}}}
+
+\def\gobsblock@add{
+    \ifx\gobs@list\@empty
+        \@temptokena=\expandafter{\gobs@list}
+    \else \@temptokena=\expandafter{\gobs@list\\}\fi
+    \xdef\gobs@list{\the\@temptokena\@nameuse{obsblock@gemini}}
+    \cleart@gobsline}
+
+\def\objid#1{\gdef\obs@objid{#1}}
+\def\object#1{\gdef\obs@object{#1}}
+\def\ra#1{\gdef\obs@ra{#1}}
+\def\dec#1{\gdef\obs@dec{#1}}
+\def\epoch#1{\gdef\obs@epoch{#1}}
+\def\magnitude#1{\gdef\obs@magnitude{#1}}
+\def\filter#1{\gdef\obs@filter{#1}}
+\def\exptime#1{\gdef\obs@exptime{#1}}
+\def\nexposures#1{\gdef\obs@nexposures{#1}}
+\def\moondays#1{\gdef\obs@moondays{#1}}
+\def\skycond#1{\gdef\obs@skycond{#1}}
+\def\seeing#1{\gdef\obs@seeing{#1}}
+\def\obscomment#1{\gdef\obs@obscomment{#1}\obsblock@add}
+
+\def\obstime#1{\gdef\obs@obstime{#1}}
+\def\guidestars#1{\gdef\obs@guidestars{#1}}
+\def\skybackground#1{\gdef\obs@skybackground{#1}}
+\def\watervapor#1{\gdef\obs@watervapor{#1}}
+\def\cloudcover#1{\gdef\obs@cloudcover{#1}}
+\def\imagequality#1{\gdef\obs@imagequality{#1}}
+\def\gemcomment#1{\gdef\obs@gemcomment{#1}}
+\def\endtarget{\gobsblock@add}
+
+\def\instrname@default{\@instrname}
+\def\pream@default{ccccccccccccl}
+\def\pream@gemini{cccccccccccccl}
+
+\def\obshead@default{
+{\shortstack{Obj\\ID}} & {Object} & {$\alpha$} & {$\delta$} & {Epoch} &
+{Mag.} & {Filter} & {\shortstack{Exp.\\time}} &
+{\shortstack{\# of\\exp.}} &
+{\shortstack{Lunar\\days}} & {Sky} & {Seeing} & {Comment}
+}
+
+\def\obshead@gemini{
+{\shortstack{Obj\\ID}} & {Object} & {$\alpha$} & {$\delta$} & {Epoch} &
+{Mag.} & {\shortstack{Obs.\\time}} &
+{\shortstack{WFS\\stars}} &
+{\shortstack{IQ\\\%}} &
+{\shortstack{SB\\\%}} &
+{\shortstack{WV\\\%}} &
+{\shortstack{CC\\\%}} &
+{Comment}
+}
+
+\def\obsblock@default{
+\obs@objid & \obs@object & \obs@ra & \obs@dec & \obs@epoch &
+\obs@magnitude & \obs@filter & \obs@exptime & \obs@nexposures &
+\obs@moondays & \obs@skycond & \obs@seeing & \obs@obscomment
+}
+
+\def\obsblock@gemini{
+\obs@objid & \obs@object & \obs@ra & \obs@dec & \obs@epoch &
+\obs@magnitude & \obs@obstime & 
+\obs@guidestars & 
+\obs@imagequality & \obs@skybackground& \obs@watervapor & \obs@cloudcover & 
+\obs@gemcomment
+}
+
+
+
+
+%  ****************************************
+%  *           EPS INCLUSIONS             *
+%  ****************************************
+
+% Include Rokicki's epsf.sty file explicitly.
+
+\@ifundefined{epsfbox}{\input{epsf.sty}}{\relax}
+
+% Simplified EPS inclusion macros so we can see how this goes...
+% These are layered on Rokicki's dvips material, and are dependent
+% on the author's use of that DVI driver.
+%
+%    \plotone{EPSFILE}
+%    \plottwo{EPSFILE}{EPSFILE}
+%    \plotfiddle{EPSFILE}{VSIZE}{ROT}{HSF}{VSF}{HTRANS}{VTRANS}
+%
+% \plotone inserts the plot in a space that is \columnwidth wide; the
+% plot is scaled so the horizontal dimension fits in the text width,
+% and the vertical dimension is scaled to maintain the aspect ratio.
+% \plottwo inserts two plots next to each other in one \columnwidth,
+% sort of like "two-up" mode.
+%
+%    EPSFILE    name of file with EPS
+%
+% The following arguments are for the \plotfiddle macro which formats
+% the \special itself, prepares vspace, etc.  This completely bypasses
+% Rokicki's macros that attempt to rationalize the EPS BoundingBox with
+% the LaTeX page dimensions.
+%
+%    VSIZE      vertical white space to allow for plot
+%    ROT        rotation angle
+%    HSF        horiz scale factor
+%    VSF        vert scale factor
+%    HTRANS     horiz translation
+%    VTRANS     vert translation
+
+%\epsfverbosetrue
+
+\def\eps@scaling{.95}
+\def\epsscale#1{\gdef\eps@scaling{#1}}
+
+\def\plotone#1{\centering \leavevmode
+    \epsfxsize=\eps@scaling\columnwidth \epsfbox{#1}}
+
+\def\plottwo#1#2{\centering \leavevmode
+    \epsfxsize=.45\columnwidth \epsfbox{#1} \hfil
+    \epsfxsize=.45\columnwidth \epsfbox{#2}}
+
+\def\plotfiddle#1#2#3#4#5#6#7{\centering \leavevmode
+    \vbox to#2{\rule{0pt}{#2}}
+    \special{psfile=#1 voffset=#7 hoffset=#6 vscale=#5 hscale=#4 angle=#3}}
+
+% Conveniences - compatible with AASTeX v4.0.
+
+\def\deg{\hbox{$^\circ$}}
+\def\sun{\hbox{$\odot$}}
+\def\earth{\hbox{$\oplus$}}
+\def\lesssim{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$<$}}}}
+\def\gtrsim{\mathrel{\hbox{\rlap{\hbox{\lower4pt\hbox{$\sim$}}}\hbox{$>$}}}}
+\def\sq{\hbox{\rlap{$\sqcap$}$\sqcup$}}
+\def\arcdeg{\hbox{$^\circ$}}
+\def\arcmin{\hbox{$^\prime$}}
+\def\arcsec{\hbox{$^{\prime\prime}$}}
+\def\fd{\hbox{$.\!\!^{\rm d}$}}
+\def\fh{\hbox{$.\!\!^{\rm h}$}}
+\def\fm{\hbox{$.\!\!^{\rm m}$}}
+\def\fs{\hbox{$.\!\!^{\rm s}$}}
+\def\fdg{\hbox{$.\!\!^\circ$}}
+\def\farcm{\hbox{$.\mkern-4mu^\prime$}}
+\def\farcs{\hbox{$.\!\!^{\prime\prime}$}}
+\def\fp{\hbox{$.\!\!^{\scriptscriptstyle\rm p}$}}
+\def\micron{\hbox{$\mu$m}}
+\let\la=\lesssim			% For Springer A&A compliance...
+\let\ga=\gtrsim
+\def\case#1#2{\hbox{$\frac{#1}{#2}$}}
+\def\slantfrac#1#2{\hbox{$\,^#1\!/_#2$}}
+\def\onehalf{\slantfrac{1}{2}}
+\def\onethird{\slantfrac{1}{3}}
+\def\twothirds{\slantfrac{2}{3}}
+\def\onequarter{\slantfrac{1}{4}}
+\def\threequarters{\slantfrac{3}{4}}
+\def\ubvr{\hbox{$U\!BV\!R$}}            
+\def\ub{\hbox{$U\!-\!B$}}               
+\def\bv{\hbox{$B\!-\!V$}}               
+\def\vr{\hbox{$V\!-\!R$}}               
+\def\ur{\hbox{$U\!-\!R$}}
+\def\ion#1#2{#1$\;${\small\rm\@Roman{#2}}\relax}
+
+\let\jnl@style=\rm
+\def\ref@jnl#1{{\jnl@style#1}}
+\def\aj{\ref@jnl{AJ}}                   
+\def\araa{\ref@jnl{ARA\&A}}             
+\def\apj{\ref@jnl{ApJ}}                 
+\def\apjl{\ref@jnl{ApJ}}                
+\def\apjs{\ref@jnl{ApJS}}               
+\def\ao{\ref@jnl{Appl.~Opt.}}           
+\def\apss{\ref@jnl{Ap\&SS}}             
+\def\aap{\ref@jnl{A\&A}}                
+\def\aapr{\ref@jnl{A\&A~Rev.}}          
+\def\aaps{\ref@jnl{A\&AS}}              
+\def\azh{\ref@jnl{AZh}}                 
+\def\baas{\ref@jnl{BAAS}}               
+\def\jrasc{\ref@jnl{JRASC}}             
+\def\memras{\ref@jnl{MmRAS}}            
+\def\mnras{\ref@jnl{MNRAS}}             
+\def\pra{\ref@jnl{Phys.~Rev.~A}}        
+\def\prb{\ref@jnl{Phys.~Rev.~B}}        
+\def\prc{\ref@jnl{Phys.~Rev.~C}}        
+\def\prd{\ref@jnl{Phys.~Rev.~D}}        
+\def\pre{\ref@jnl{Phys.~Rev.~E}}        
+\def\prl{\ref@jnl{Phys.~Rev.~Lett.}}    
+\def\pasp{\ref@jnl{PASP}}               
+\def\pasj{\ref@jnl{PASJ}}               
+\def\qjras{\ref@jnl{QJRAS}}             
+\def\skytel{\ref@jnl{S\&T}}             
+\def\solphys{\ref@jnl{Sol.~Phys.}}      
+\def\sovast{\ref@jnl{Soviet~Ast.}}      
+\def\ssr{\ref@jnl{Space~Sci.~Rev.}}     
+\def\zap{\ref@jnl{ZAp}}                 
+\def\nat{\ref@jnl{Nature}}              
+\def\iaucirc{\ref@jnl{IAU~Circ.}}
+\def\aplett{\ref@jnl{Astrophys.~Lett.}}
+\def\apspr{\ref@jnl{Astrophys.~Space~Phys.~Res.}}
+\def\bain{\ref@jnl{Bull.~Astron.~Inst.~Netherlands}}
+\def\fcp{\ref@jnl{Fund.~Cosmic~Phys.}}
+\def\gca{\ref@jnl{Geochim.~Cosmochim.~Acta}}
+\def\grl{\ref@jnl{Geophys.~Res.~Lett.}}
+\def\jcp{\ref@jnl{J.~Chem.~Phys.}}      
+\def\jgr{\ref@jnl{J.~Geophys.~Res.}}    
+\def\jqsrt{\ref@jnl{J.~Quant.~Spec.~Radiat.~Transf.}}
+\def\memsai{\ref@jnl{Mem.~Soc.~Astron.~Italiana}}
+\def\nphysa{\ref@jnl{Nucl.~Phys.~A}}
+\def\physrep{\ref@jnl{Phys.~Rep.}}
+\def\physscr{\ref@jnl{Phys.~Scr}}
+\def\planss{\ref@jnl{Planet.~Space~Sci.}}
+\def\procspie{\ref@jnl{Proc.~SPIE}}
+\let\astap=\aap
+\let\apjlett=\apjl
+\let\apjsupp=\apjs
+\let\applopt=\ao
+
+% Initialization.
+
+\textwidth 6.5in
+\textheight 9.0in
+\oddsidemargin \z@
+\evensidemargin \z@
+\topmargin \z@
+\headheight .2in
+\headsep .2in
+%\footheight \z@
+\parindent \z@
+%\parskip 1ex
+\addtolength{\parskip}{1 ex}
+
+\voffset=-0.25in
+%\hoffset=-0.25in
+
+\ps@kpprophead
+\setcounter{secnumdepth}{0}
+
+\thispagestyle{empty}
