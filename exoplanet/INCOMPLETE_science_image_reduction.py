@@ -55,7 +55,7 @@ def AverageDark(darkfiles):
 def AverageFlat(flatfiles):
     
     # opens each flat image file and stores the 2d images in a numpy array
-    flatdata=np.array([pyfits.open(i.rstrip('\n'))[0].data for i in open(flatfiles)])
+    flatdata=1.0*np.array([pyfits.open(i.rstrip('\n'))[0].data for i in open(flatfiles)])
     # normalizes each image by its median (useful especially if the flats have very different count level):
     for i in range(0,flatdata.shape[0]):
         flatdata[i]=flatdata[i]/np.median(flatdata[i])
