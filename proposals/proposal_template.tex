@@ -1,12 +1,12 @@
-
 % NOAOPROP.TEX -- template for NOAO STANDARD telescope proposals.
-% Revision Feb 1 2001 -- for the Aug 2001 - Jan 2002 observing semester.
+% Revised for the 2018A semester (February - July 2018)
 % For later semesters, the current form may be obtained from our Web
 % page at http://www.noao.edu/noaoprop/noaoprop.html
 
-%       STANDARD PROPOSAL FORM - DO NOT USE FOR SURVEY PROPOSALS
+% DEADLINE FOR SUBMISSIONS: 11:59pm MST MONDAY OCTOBER 2, 2017
 
-% DEADLINE FOR SUBMISSIONS: 11:59pm MST SATURDAY MARCH 31.
+% This form can NOT be used to submit Gemini proposals.  Please
+% see:   http://www.noao.edu/noaoprop/help/pit.html
 
 % This LaTeX template has been returned to you upon request through
 % our Web-based proposal form.  The template has been customized for
@@ -14,71 +14,77 @@
 % As an option you may complete this form locally and submit it by
 % email following the instructions below.  If the run information is
 % incomplete you should go back to the Web form, complete all the
-% suggested run information and then obtain another customized template
-% before proceeding.  In particular, Gemini run information including
-% targets and guide stars must be completed through the Web form.
+% suggested run information and then obtain another customized 
+% template before proceeding. 
 %
-% We encourage Web submissions but if you prefer to submit this
-% template by email, follow the instructions below.
+% WEB FORM SUBMISSION:
+% If you have not modified this document locally, we encourage web
+% submissions using the "Proposal Submission" button on the web
+% proposal form.  Be sure to click on the second prompt on the
+% following page to complete submission.   Skip to step #3 below
+% for some additional information.
 %
-%   1. Where/how/when to submit this form electronically:
-%      Send THIS file (NOT the PostScript version) to
-%      noaoprop-submit@noao.edu.  The proposal and any figures
-%      must be submitted as separate email messages.  Figures can be
-%      submitted only AFTER the proposal ID has been sent to you via
-%      email. See the end of this file for further submission details.
+% FILE UPLOAD SUBMISSION:
+% If you have modified this document locally and are ready to submit, 
+% you do not need to return to the web form.  Instead, you may submit
+% this template and figure files by following the instructions 
+% below.
 %
-%   2. Before submitting this form electronically, run it through latex
+%   1. Before submitting this form electronically, run it through latex
 %      and print it out to make certain that it looks the way that you
 %      wish the review panel to see it.
+%   
+%   2. Upload THIS file (NOT the PostScript or PDF version) and
+%      all figures on the web at http://www.noao.edu/noaoprop/submit/
 %
-%   3. If the proposal is a thesis or if the principal investigator is
-%      a graduate student, the student's faculty advisor must send a
-%      letter citing the graduate student's observing experience and,
-%      if the program is a thesis, how this particular observing
-%      proposal fits into the overall thesis plans.  This letter must
-%      be sent by the faculty advisor to noaoprop-letter@noao.edu
-%      BEFORE the proposal deadline.  Graduate students proposing
-%      thesis observations should consult NOAO policies concerning
-%      thesis programs and travel support.
+%   3. If the proposal is a thesis or if the principal investigator is a
+%      a graduate student, the student's faculty advisor must complete
+%      the online form at http://www.noao.edu/noaoprop/thesis/
+%      This form should be completed within two business days after the
+%      deadline.  Graduate students proposing thesis observations should
+%      consult NOAO policies concerning thesis programs and travel support.
 %
-%   4. If you are planning to bring a Visitor Instrument, you must
-%      send a separate letter or email (noaoprop-letter@noao.edu) prior
-%      to Oct 15 to make sure we fully understand what will be involved
-%      in interfacing your equipment to our telescopes.
-%
-%   5. QUESTIONS?  If you have questions about submitting your proposal
+%   4. QUESTIONS?  If you have questions about submitting your proposal
 %      send email to noaoprop-help@noao.edu.  Information about
-%      instrumentation and observing facilities at Gemini, CTIO, KPNO,
-%      and the HET can be found at the NOAO Web site at
-%      http://www.noao.edu/noaoprop/noaoprop.html.  Specific questions
-%      about instrumentation or facilities at CTIO, KPNO, or the HET
-%      can also be sent to the respective sites at ctio@noao.edu,
-%      kpno@noao.edu, or het@noao.edu.   Gemini questions should be
-%      sent to their Web page at http://helpdesk.gemini.edu/hdsupport/
-%      or email may be sent to the US mirror scientists at
-%      usgemini@noao.edu.
+%      instrumentation can be found at the NOAO Web 
+%      site at http://www.noao.edu/noaoprop/noaoprop.html.  Specific 
+%      instrumentation or facility questions for CTIO or KPNO
+%      can also be sent to the respective sites at ctio@noao.edu, 
+%      and kpno@noao.edu
+%      Gemini questions can be  emailed to the US mirror scientists 
+%      at nssc@noao.edu.
 %
-%   6. When your proposal is received at NOAO you will be sent an
+%   5. When your proposal is received at NOAO you will be sent an
 %      automatic email message verifying its receipt along with a
 %      proposal ID number.  If you do not receive this message within
 %      15 minutes of the time you sent your proposal send email to
 %      noaoprop-help@noao.edu for assistance.  You may track your
 %      proposal processing by the proposal ID number at the following
-%      web page:   http://www.noao.edu/cgi-bin/noaoprop/propstatus
+%      web page:   https://www.noao.edu/cgi-bin/noaoprop/propstatus
 % ___________________________________________________________________
 % THE FORM STARTS HERE
 %
 
 % Please do not modify or delete this line.
-\documentstyle[nprop24,11pt]{article}
-
+\documentclass[11pt]{article}
+\usepackage{nprop30}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
 
 % Please do not modify or delete this line.
 \begin{document}
 
+% Uncomment the following line and enter a previous semester and ID
+% (e.g. 01B-0987) if you wish to flag this proposal as a resubmission
+\pastid{}
+
 % Please do not modify or delete this line.
-\proposaltype{Longterm}
+\proposaltype{}
+% Do not delete the following uncommented line which is required for Gemini 
+% proposals.  This line indicates whether or not the proposal is being 
+% submitted to multiple partner countries - only "yes" or "no" is valid.
+\geminidata{mpartners}{no}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -89,7 +95,7 @@
 % \sciencecategory selection will be used to assign a review panel to
 % your proposal.  DO NOT MODIFY THE SELECTION YOU UNCOMMENT.  A
 % description of each of these categories is available on our Web page
-% at http://www.noao.edu/noaoprop/help/scicat.html
+% at https://www.noao.edu/noaoprop/help/scicat.html
 
 % EXTRA-GALACTIC LIST (do not uncomment this line)
 %\sciencecategory{Active Galaxies}
@@ -118,7 +124,16 @@
 %\sciencecategory{Kuiper Belt Objects}
 %\sciencecategory{Small Bodies \& Moons}
 %\sciencecategory{Planets}
+%\sciencecategory{Extrasolar Planets}
 %\sciencecategory{Solar System - Other}
+
+% KEYWORDS (1-5 keywords are required for Gemini).  Note that the keywords
+% are different for the extra-galactic, galactic and solar system lists
+% above, so if you change your science catagory you will need to check to
+% be certain your keywords are still valid (see the list of keywords at
+% http://www.noao.edu/noaoprop/help/keywords.html).
+\geminidata{keyword1}{Galactic halo}
+\geminidata{keyword2}{Globular clusters}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -132,6 +147,179 @@
 % the title text.  Use both upper and lower case letters (NOT ALL CAPS).
 
 \title{A Sample NOAO Telescope Proposal}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ABSTRACT
+%
+% Give a general abstract of the scientific justification appropriate
+% for a non-specialist.  Write between the \begin{abstract} and 
+% \end{abstract} lines.  Limit yourself to approximately 175 words.
+% Abstracts of accepted proposals will be made publicly available.
+
+% DO NOT remove the \begin{abstract} and \end{abstract} lines.
+
+\begin{abstract}
+This sample proposal offers tips on how to prepare your telescope
+proposal for observing on facilities available through NOAO. 
+With the NOAO Proposal Form, you can apply for time on the 
+Gemini North and South Telescopes, the  Hobby-Eberly
+Telescope, the 6.5-m telescope of the MMT Observatory, and the telescopes
+at the Cerro Tololo Inter-American Observatory and the Kitt Peak
+National Observatory.  
+
+Your abstract is the review panel's window into your proposal: the abstract
+provides an initial impression about your proposal and it is also
+what panel members refer to at the review meeting to remind themselves
+about the content of your proposal.  Take advantage of the opportunity
+to give the panel members an understandable and concise summary of what 
+you want to do, and why.  Write your abstract so that non-specialists can
+quickly understand why the observations you want to make are important.
+
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SUMMARY OF OBSERVING RUNS REQUESTED
+%
+% List a summary of the details of the observing runs being requested,
+% for UP TO SIX runs.  The parameters for each run are segregated
+% between \begin{obsrun} and \end{obsrun} lines.  Please be sure
+% that the information is isolated properly for each run.
+%
+%   \begin{obsrun}
+%   \telescope{}        % For example, \telescope{KP-4m}
+%   \instrument{}       % For example, \instrument{ECHUV + T2KB}
+%   \numnights{}        % For example, \numnights{6}
+%   \lunardays{}        % For example, \lunardays{grey}
+%   \optimaldates{}     % For example, \optimaldates{Sep - Nov}
+%   \acceptabledates{}  % For example, \acceptabledates{Aug - Jan}
+%   \end{obsrun}
+%
+% The following telescope identifiers MUST be used in the \telescope{}
+% field.  Some of the telescope identifiers must include an observatory
+% code as well.
+%
+% CTIO: CT-4m, SOAR, CT-1.3m, CT-0.9m
+% KPNO: WIYN, KP-0.9m
+% AAO: AAT
+% LCO: LCO-2m, LCO-1m
+% CHARA: CHARA
+%
+% Select the instrument and detector identifiers from the list on our
+% Web page at https://www.noao.edu/noaoprop/help/facilities.html.
+% The correct codes MUST be used to ensure your correct
+% instrument + detector combination.
+%
+% \numnights should give the number of nights of the run (for queue
+% observations, use fractional 10-hour equivalent nights, e.g.
+% 3 hours = 0.3 nights).  Formats such as 5x0.5 are acceptable.
+%
+% \lunardays should contain the word "darkest", "dark", "grey", or
+% "bright", which in turn reflects the number of nights from new moon
+% where darkest<=3, dark<=7, grey<=10, bright<=14.  Particular lunar 
+% phase requirements dictated by the science program (e.g., "<=12", 
+% "+9, -6", or "full moon more than 2 hours away from Taurus") should
+% be noted in the "scheduling constraints or non-usable dates" section 
+% below.
+%
+% \optimaldates should contain the range of OPTIMAL months, as shown 
+% below.
+%
+% \acceptabledates should give the range of ACCEPTABLE months (i.e.,
+% you would not accept time outside those limits).
+% NOTE THAT DUE TO INSTRUMENT BLOCKING RESTRICTIONS YOU SHOULD MAKE 
+% THIS RANGE AS GENEROUS AS POSSIBLE.
+%
+% For QUEUE-SCHEDULED observations, you may set the date range to the 
+% full semester range and set \lunardays to the brightest moon your
+% observations could tolerate if the program were scheduled classically.
+%
+% To enter the acceptable and optimal date ranges, please use two
+% dash-separated months with 3-letter abbreviations for the month
+% (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec).
+% For example:  \optimaldates{Nov - Dec}.
+% We appreciate your help in not using vague range specifications
+% like "October dark run" or "mid-January" which will require human
+% intervention.
+%
+% FOR LONGTERM STATUS PROPOSALS SPECIFY ONLY THE RUNS FOR THE CURRENT
+% SEMESTER, AND NOT FOR ANY SUBSEQUENT SEMESTERS.
+
+% DO NOT remove any of the \begin{obsrun} and \end{obsrun} blocks, 
+% even if the blocks are empty.
+
+\begin{obsrun}
+\telescope{CT-4m}
+\instrument{DECam}
+\numnights{2}
+\lunardays{grey}
+\optimaldates{Mar - Apr}
+\acceptabledates{Feb - Jul}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{AAT}
+\instrument{AAOmega + 2dF}
+\numnights{3x0.5}
+\lunardays{dark}
+\optimaldates{Feb - May}
+\acceptabledates{Feb - Jul}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{CT-4m}
+\instrument{COSMOS}
+\numnights{3}
+\lunardays{grey}
+\optimaldates{Jun - Jul}
+\acceptabledates{May - Jul}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{WIYN}
+\instrument{HYDRR + STA1}
+\numnights{2}
+\lunardays{grey}
+\optimaldates{Feb - Feb}
+\acceptabledates{Feb - Feb}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{}
+\instrument{}
+\numnights{}
+\lunardays{}
+\optimaldates{}
+\acceptabledates{}
+\end{obsrun}
+
+\begin{obsrun}
+\telescope{}
+\instrument{}
+\numnights{}
+\lunardays{}
+\optimaldates{}
+\acceptabledates{}
+\end{obsrun}
+
+
+% If there are scheduling constraints or non-usable dates for any of
+% the runs specified, (i.e., other than the default lunar phase 
+% requirements or when your object is up) please give the dates by 
+% filling in the curly braces in \unusabledates{}.  Note here if you 
+% are requesting runs in an "either/or" situation, e.g. run 1 or run 2, 
+% but not both. This is also the place to advise us of any special 
+% constraints which affect the scheduling of your observing run (e.g. 
+% "schedule run #1 before run #2" or "run dates must be coordinated 
+% with HST observations").
+% 
+% Please limit your text to six lines on the printed copy.
+
+\unusabledates{Please avoid Nov. 7 (Election Day) \\ 
+The MMT run should follow the KP-4m run by at least a week.  \\  
+The CT-1.5m run must be scheduled May 28 - Jun 1 to catch the eclipse. \\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -160,21 +348,24 @@
 %
 % For each \invstatus{} field, please fill in the appropriate
 % investigator status code from the following list.  If the investigator
-% is a graduate student, indicate "T" if this proposal is related to a
+% is a graduate student, indicate "T" if THIS proposal is related to a
 % thesis project, or "G" otherwise.  This code should represent the
 % status of the individuals at the time of the proposal submission.
 % This information is necessary to assist us with our required reporting
 % to the NSF.
 %
-% \invstatus{P} % investigator has obtained PhD or doctorate
-% \invstatus{T} % investigator is grad student, observing for thesis
-% \invstatus{G} % investigator is grad student, not observing for thesis
+% \invstatus{P} % investigator has obtained PhD or equivalent
+% \invstatus{T} % investigator is grad student, proposal is thesis
+% \invstatus{G} % investigator is grad student, proposal not thesis
 % \invstatus{U} % investigator is an undergraduate student
 % \invstatus{O} % investigator has other status (none of the above)
 %
+% DO NOT remove the \begin{PI} and \end{PI}.  Only one individual's
+% name per \name field is allowed.
 %
-% DO NOT remove the \begin{PI} and \end{PI}.  Only one individual's name
-% per \name field is allowed.
+% Investigator names will now appear on page 2 of the printed proposal.
+% Do not remove this line.
+\investigators
 
 \begin{PI}
 \name{George W. Bush}
@@ -192,16 +383,16 @@
 \end{PI}
 
 \begin{CoI}
-\name{Colin L. Powell}
+\name{Condoleeza Rice}
 \affil{Dept. of State}
 \email{secretary@state.gov}
-\invstatus{O}
+\invstatus{P}
 \end{CoI}
 
 \begin{CoI}
-\name{J. Dennis Hastert}
+\name{Nancy Pelosi}
 \affil{U.S. House of Representatives}
-\email{}
+\email{sf.nancy@mail.house.gov}
 \invstatus{O}
 \end{CoI}
 
@@ -219,182 +410,6 @@
 %\invstatus{}
 %\end{CoI}
 
-
-
-% You can supply more CoI blocks, but only the first six will be
-% printed in the main body of the proposal - others will be printed
-% in the right margin.  All investigator names will be available to
-% the review panel and stored in our database.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% ABSTRACT
-%
-% Give a general abstract of the scientific justification appropriate
-% for a non-specialist.  Write the abstract between the \begin{abstract}
-% and \end{abstract} lines.  Limit yourself to approximately 175 words.
-% Abstracts of accepted proposals will be made publicly available.
-
-% DO NOT remove the \begin{abstract} and \end{abstract} lines.
-
-\begin{abstract}
-This sample proposal offers tips on how to prepare your telescope
-proposal for observing on facilities available through NOAO. 
-With the NOAO Proposal Form, you can apply for time on the 
-Gemini North and South Telescopes, the  Hobby-Eberly
-Telescope, the 6.5-m telescope of the MMT Observatory, and the telescopes
-at the Cerro Tololo Inter-American Observatory and the Kitt Peak
-National Observatory.  
-
-Your abstract is the review panel's window into your proposal: the abstract
-provides an initial impression about your proposal and it is also
-what panel members refer to at the review meeting to remind themselves
-about the content of your proposal.  Take advantage of the opportunity
-to give the panel members an understandable and concise summary of what 
-you want to do, and why.  Write your abstract so that non-specialists can
-quickly understand why the observations you want to make are important.
-\end{abstract}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% SUMMARY OF OBSERVING RUNS REQUESTED
-%
-% List a summary of the details of the observing runs being requested,
-% for UP TO SIX runs.  The parameters for each run are segregated
-% between \begin{obsrun} and \end{obsrun} lines.  Please be sure
-% that the information is isolated properly for each run.
-%
-%   \begin{obsrun}
-%   \telescope{}        % For example, \telescope{KP-4m}
-%   \instrument{}       % For example, \instrument{ECHUV + T2KB}
-%   \numnights{}        % For example, \numnights{6}
-%   \lunardays{}        % For example, \lunardays{grey}
-%   \optimaldates{}     % For example, \optimaldates{Sep - Nov}
-%   \acceptabledates{}  % For example, \acceptabledates{Aug - Jan}
-%   \end{obsrun}
-%
-% The following telescope identifiers MUST be used in the \telescope{}
-% field.  Some of the telescope identifiers must include an observatory
-% code as well since the same form can be used to submit a single 
-% proposal for all facilities available through NOAO.
-%
-% Gemini: GEM-N, GEM-NQ, GEM-SQ
-% Hobby-Eberly Telescope: HET
-% MMT:  MMT
-% CTIO: CT-4m, CT-1.5m, YALO, CT-0.9m
-% KPNO: KP-4m, WIYN, KP-2.1m, W-0.9m
-%
-% Select the instrument and detector identifiers from the list on our
-% Web page at http://www.noao.edu/noaoprop/help/facilities.html.
-% The correct codes MUST be used to ensure your correct
-% instrument + detector combination.
-%
-% \numnights should give the number of nights of the run (for queue
-% runs use fractional 10-hour equivalent nights (e.g. 3 hours = 0.3 nights),
-% Formats such as 5x0.5 are acceptable.
-%
-% \lunardays should contain the word "darkest", "dark", "grey", or
-% "bright", which in turn reflects the number of nights from new moon
-% where darkest<=3, dark<=7, grey<=10, bright<=14.  Particular lunar 
-% phase requirements dictated by the science program (e.g., "<=12", 
-% "+9, -6", or "full moon more than 2 hours away from Taurus") should
-% be noted in the "scheduling constraints or non-usable dates" section 
-% below.
-%
-% \optimaldates should contain the range of OPTIMAL months, as shown 
-% below.
-%
-% \acceptabledates should give the range of ACCEPTABLE months (i.e.,
-% you would not accept time outside those limits).
-% NOTE THAT DUE TO INSTRUMENT BLOCKING RESTRICTIONS YOU SHOULD MAKE 
-% THIS RANGE AS GENEROUS AS POSSIBLE.
-%
-% For QUEUE-SCHEDULED observations, you may set the date range to the 
-% full semester range and set \lunardays to the brighest moon your
-% observations could tolerate if the program were scheduled classically.
-%
-% To enter the acceptable and optimal date ranges, please use two
-% dash-separated months with 3-letter abbreviations for the month
-% (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec).
-% For example:  \optimaldates{Nov - Dec}.
-% We appreciate your help in not using vague range specifications
-% like "October dark run" or "mid-January" which will require human
-% intervention.
-%
-% FOR LONGTERM STATUS PROPOSALS SPECIFY ONLY THE RUNS FOR THE CURRENT
-% SEMESTER, AND NOT FOR ANY SUBSEQUENT SEMESTERS.
-
-% DO NOT remove any of the \begin{obsrun} and \end{obsrun} blocks, 
-% even if the blocks are empty.
-
-\begin{obsrun}
-\telescope{HET}
-\instrument{LRS}
-\numnights{2}
-\lunardays{grey}
-\optimaldates{Aug - Jan}
-\acceptabledates{Aug - Jan}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{MMT}
-\instrument{BCHAN}
-\numnights{3x0.5}
-\lunardays{dark}
-\optimaldates{Dec - Jan}
-\acceptabledates{Oct - Jan}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{KP-4m}
-\instrument{RCSPM + T2KB}
-\numnights{3}
-\lunardays{grey}
-\optimaldates{Sep - Nov}
-\acceptabledates{Aug - Jan}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{WIYN}
-\instrument{HYDRR + T2KC}
-\numnights{2}
-\lunardays{grey}
-\optimaldates{Aug - Jan}
-\acceptabledates{Aug - Jan}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{CT-1.5m}
-\instrument{CSPEC + L1K}
-\numnights{5}
-\lunardays{grey}
-\optimaldates{Aug - Oct}
-\acceptabledates{Aug - Sep}
-\end{obsrun}
-
-\begin{obsrun}
-\telescope{}
-\instrument{}
-\numnights{}
-\lunardays{}
-\optimaldates{}
-\acceptabledates{}
-\end{obsrun}
-
-
-% If there are scheduling constraints or non-usable dates for any of
-% the runs specified, (i.e., other than the default lunar phase 
-% requirements or when your object is up) please give the dates by 
-% filling in the curly braces in \unusabledates{}.  Note here if you 
-% are requesting runs in an "either/or" situation, e.g. run 1 or run 2, 
-% but not both. This is also the place to advise us of any special 
-% constraints which affect the scheduling of your observing run (e.g. 
-% "schedule run #1 before run #2" or "run dates must be coordinated 
-% with HST observations").
-
-% Please limit your text to 4 lines on the printed copy.
-
-\unusabledates{Please avoid Nov. 7 (Election Day) \\ The MMT run should follow the KP-4m run by at least a week.  \\  The CT-1.5m run must be scheduled Aug. 28 - Sept. 1 to catch the eclipse.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -417,43 +432,7 @@ quickly understand why the observations you want to make are important.
 % we not send them more than one page), with up to two additional pages
 % for references, figures (no more than three), and captions. 
 
-% If you wish to use our "reference" environment, follow the following
-% example (journal commands are compatible with AASTeX v4.0):
-%
-%\begin{references}
-%\reference Armandroff \& Massey 1991 \aj, 102, 927.
-%\reference Berkhuijsen \& Humphreys 1989 \aap, 214, 68.
-%\reference Massey 1993 in Massive Stars: Their Lives in the 
-% Interstellar Medium (Review), ed. J. P. Cassinelli and E. B. 
-% Churchwell, p. 168.
-%\reference Massey \& Armandroff 1999, in prep.
-%\end{references}
-
-% Only EPS figures may be included with your proposal.  In order to
-% include an EPS plot, you should use the LaTeX "figure" environment.
-% The plot file is included with the \plotone{FILENAME} command; two
-% side-by-side plot files can be included by typing
-% \plottwo{FILENAME1}{FILENAME2}.  Use \caption{} to specify a caption.
-% The \epsscale{} command can be used to scale \plotone plots if they
-% appear too large on the printed page.  Contact us if you have any
-% figure questions or encounter any problems with figures
-% (noaoprop-help@noao.edu).
-%
-% \begin{figure}
-% \epsscale{0.85}
-% \plotone{sample.eps}
-% \caption{Sample figure showing important results.}
-% \end{figure}
-%
-% If you need to rotate or make other transformations to a figure, you
-% may use the \plotfiddle command:
-% \plotfiddle{PSFILE}{VSIZE}{ROTANG}{HSCALE}{VSCALE}{HTRANS}{VTRANS}
-% \plotfiddle{sample.eps}{2.6in}{-90.}{32.}{32.}{-250}{225}
-% where HSCALE and VSCALE are percentages and HTRANS and VTRANS are
-% in PostScript units, 72 PS units = 1 inch.
-%
-% Note that the Web form provides several useful and simple figure 
-% options.
+% You can include references through BibTeX.
 
 \sciencejustification
 The scientific justification should explain the overall goals of
@@ -507,7 +486,7 @@ Organize your presentation with paragraphs, headings, and bullets
 so it is easy to read.
 
 \item
-Include and check references as appropriate.
+Include and check references as appropriate \citep{Bell96}.
 
 \item
 Print out the proposal to be sure your LaTeX is correct.
@@ -520,18 +499,14 @@ Finally, when an opportunity arises, volunteer to serve on
 a TAC or review panel.  The experience is a great help in
 learning how to write a good scientific justification.
 
-\begin{references}
-\reference Bell, D., Biemesderfer, C. D., Barnes, J., \& Massey, P. 1996, in
-Astronomical Data Analysis Software and Systems V, A.S.P.\ Conf.\ Ser.,
-Vol.\ 101, eds. G. H. Jacoby \& J. Barnes (San Francisco: ASP), 451
-\end{references}
+\bibliography{proposal_refs}
 
 \begin{figure}[hbt]
-\epsscale{0.85}
-\plotone{figure1a.eps}
+\includegraphics[width=0.5\hsize]{figure1a.eps}
 \caption{This sample figure shows how quickly electronic proposals
 for telescope time replaced paper ones.}
 \end{figure}
+
 
 \clearpage
 
@@ -547,12 +522,10 @@ for telescope time replaced paper ones.}
 % long-term status, justify why this is necessary for successful 
 % completion of the science.
 %
-% NOTE: If this project involves observations on other telescopes as
-% well, list all telescopes on which you have applied for or been 
-% granted time for observations related to this project.  For each, 
-% indicate the nature of the observations, and describe the importance 
-% of the observations proposed here in the context of the entire 
-% program.
+% NOTE: In previous versions of the proposal form, this section
+% requested details about the use of non-NOAO observing facilities. 
+% Such information should now be entered in the following "Other
+% Facilities" section.
 
 \expdesign
 The review panel looks to this section to find out about the overall
@@ -564,21 +537,63 @@ some other approach, what must the minimum sample size be to achieve
 your scientific goals (and why), and why are your
 observations likely to be better than previous work in the field?
 
-We also ask you to provide information about observations to be made
-at other observatories as part of this program.  This information could
-be as simple as the following:
 
-{\bf
-\begin{tabular}{ll}
-Lick 1.0-m &  Broad-band Photometry \\
-Keck  & Low dispersion spectroscopy of the faintest galaxies \\
-\end{tabular}
+% PROPRIETARY PERIOD
+% 
+% Enter the proprietary period for your data between the braces.
+% The normal duration is 18 months from when the data are taken at
+% the telescope.  Requests for longer proprietary periods must
+% be approved by the NOAO Director.
 
-Time is requested through NOAO to identify target objects on
-Keck and Gemini.  Gemini time is needed for IR images and spectra
-of the faintest program objects.
-}
+\proprietaryperiod{18 months}
 
+
+% OTHER FACILITIES OR RESOURCES
+% 
+% This section should consist of text only (no figures).
+% Please limit to about a half page of printed text.
+% 
+% 1) We are interested in understanding how observations made through
+% NOAO observing opportunities complement or support data from other
+% facilities both on the ground and in space.   We will use this
+% information to guide the evolution of the NOAO program; it will not
+% affect the success of your proposal in the evaluation process.
+% Please describe how the proposed observations complement data from  
+% other facilities, including private observatories and both ground-
+% and space-based telescopes.  In addressing this question, take a
+% broad view of your research program.  Are the data to be obtained 
+% through this proposal going to help select samples for detailed
+% observations using larger telescopes or from space observatories?
+% Are these data going to be directly combined with data obtained
+% elsewhere to test a hypothesis?  Will these observations have
+% relevance to other observations, even though the proposal stands
+% on its own?  For each of these other facilities, indicate the nature
+% of the observations (yours or those of others), and describe the
+% importance of the observations proposed here in the context of the
+% entire program.
+%
+% 2) Do you currently have a grant that would provide resources
+% to support the data processing, analysis, and publication of the
+% observations proposed here?
+
+\otherfacilities
+We are interested in understanding how observations made through NOAO 
+observing opportunities complement or support data from other facilities 
+both on the ground and in space. We will use this information to guide 
+the evolution of the NOAO program; it will not affect the success of 
+your proposal in the evaluation process. 
+
+Please describe how the proposed observations complement data from other
+facilities, including private observatories and both ground- and space-based
+telescopes. In addressing this question, take a broad view of your research 
+program. Are the data to be obtained through this proposal going to help 
+select samples for detailed observations using larger telescopes or from 
+space observatories? Are these data going to be directly combined with data 
+obtained elsewhere to test a hypothesis? Will these observations have 
+relevance to other observations, even though the proposal stands on its own? 
+For each of these other facilities, indicate the nature of the observations 
+(yours or those of others), and describe the importance of the observations
+proposed here in the context of the entire program. 
 
 
 % LONG-TERM DETAILS
@@ -586,11 +601,8 @@ of the faintest program objects.
 % If you are requesting long-term status for this proposal briefly 
 % state the requirements for telescope time (telescope, instrument, 
 % number of nights) needed in subsequent semesters to complete this 
-% project in % \longtermdetails (be sure to uncomment the 
+% project in \longtermdetails (be sure to uncomment the 
 % \longtermdetails line below).
-%
-% Long-term status may NOT be requested for Gemini runs during this
-% observing semester.
 %
 % If this is a long-term request you MAY ALSO NEED to modify the
 % \proposaltype keyword at the top of this form changing "Standard"
@@ -602,7 +614,6 @@ of the faintest program objects.
 % If this is not a long-term status request then please ignore this
 % section.
 %
-% Long-term status is not applicable to CNTAC proposals.
 %
 \longtermdetails
 We request longterm status on the CT-1.5m and Cassegrain spectrograph
@@ -624,20 +635,9 @@ at any facilities available through NOAO, what's been done with the data,
 and what publications have resulted or are in progress.  It is, of course, 
 helpful if the panel members can see that you do publish the results from 
 previous observing runs in a timely way.
+
 This is also a good place to highlight important results from previous 
 runs with a sentence or two.
-
-% ***FOR PROPOSALS REQUESTING TIME AT CTIO***
-%
-% Why CTIO?  Explain why access to the southern hemisphere is needed 
-% to achieve your scientific goals.
-
-\whyctio
-This question need only be answered on proposals for telescope time at CTIO.
-Explain why access to the southern hemisphere is
-important to your program.  If you have access to other southern hemisphere
-telescopes (e.g. the AAT or ESO) you may want to explain why you need access
-to CTIO, as well.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -652,49 +652,42 @@ to CTIO, as well.
 % run in the obsruns sections. For example, 
 % \runid{1}{KP-4m/ECHUV + T2KB}.
 
-\runid{1}{HET/LRS}
+\runid{1}{CT-4m/DECam}
 
 % Describe the observations to be made during this observing run in
 % the \technicaldescription section. Justify the specific telescope,
 % the number of nights, the instrument, and the lunar phase requested.
 % List objects, coordinates, and magnitudes (or surface brightness, if
 % appropriate) using a LaTeX-coded table in this section or optionally
-% enter the target information using the Target Tables described at the
-% end of this template.  Target Tables of objects are required for 
-% queue or service runs.
+% enter the target information using the Target Tables described at
+% the end of this template.  Target Tables of objects are required for 
+% queue runs.
 %
-% Exposure time calculators (ETCs) for some optical and IR instruments
-% in use at CTIO and at KPNO are available to assist you with the 
-% preparation of your proposal.  See the Web pages:
+% Exposure time calculators (ETCs) for some optical and IR 
+% instruments in use at CTIO and at KPNO are available to assist 
+% you with the preparation of your proposal.  See the Web pages:
 %    Imaging ETC      - http://www.noao.edu/gateway/ccdtime/
 %    Spectroscopy ETC - http://www.noao.edu/gateway/spectime/
 
 \technicaldescription
-HET observations will be taken in queue mode, and target tables
-are required so that the TAC can understand the scope and complexity
-of your program.  You may use the Web target table facility to
-prepare your target list, or present them here in a LaTeX tabular
-environment. If your program is approved, however, you will need
-to prepare HET Phase II files with the actual details of your
-observations for the HET staff.  The information in this section
-is provided for the TAC rather than for the HET queue observers.
+Create a separate ``run" page for each telescope/instrument combination being used for your project.  
+
 
 
 % Several instrument configuration parameters are requested.  Fill
-% these in as appropriate for each run.  Required fields for
-% WIYN/Hydra and WIYN/DensePak are noted with a **.
+% these in as appropriate for each run. 
 %
 % \begin{configuration}
 % \filters{}            % List here any filters that you plan to use.
-% \grating{}            % List any gratings/grisms need with this run.**
-% \order{}              % Specify any grating order(s).**
+% \grating{}            % List any gratings/grisms need with this run.
+% \order{}              % Specify any grating order(s).
 % \crossdisperser{}     % List cross disperser, if needed.
 % \slit{}               % Enter slit widths you plan to use.
 % \multislit{}          % yes or no only
-% \wstart{}             % Starting wavelength of wavelength range.**
-% \wend{}               % Ending wavelength of wavelength range.**
+% \wstart{}             % Starting wavelength of wavelength range.
+% \wend{}               % Ending wavelength of wavelength range.
 % \cable{}              % For CTIO/Hydra: enter 2.0".  For WIYN: enter
-%                         red, blue, or densepak.**
+%                         red, blue, or densepak.
 % \corrector{}          % Enter red or blue for KP-coude, CAM5.
 % \collimator{}         % Enter collimator needed.
 % \adc{}                % If user selectable, enter yes or no only.
@@ -704,12 +697,12 @@ is provided for the TAC rather than for the HET queue observers.
 % Web form at http://www.noao.edu/noaoprop/help/standard.html#iconfig
 
 \begin{configuration}
-\filters{}
+\filters{ugriz'}
 \grating{}
 \order{}
 \crossdisperser{}       
-\slit{2"}
-\multislit{yes}            
+\slit{}
+\multislit{no}            
 \wstart{}
 \wend{}
 \cable{}
@@ -719,30 +712,43 @@ is provided for the TAC rather than for the HET queue observers.
 \end{configuration}
 
 
-% Use \specialrequest to describe briefly any special or non-standard
-% usage of NOAO or MMT instrumentation.   This will be ignored for HET
-% runs if included.
 
-%\specialrequest
+% COORDINATE RANGES OF PRINCIPLE TARGETS   
+% Use the \targetsra and \targetsdec fields to specify the range
+% of right ascension (in hours) and declination (in degrees) of your
+% principle targets for this observing run.
+%
+% For example:
+%
+%  \targetsra{14 to 17}
+%  \targetsdec{-10 to 35}
+
+\targetsra{12 to 13}			% RA range in hours
+\targetsdec{10 to 15}			% Dec. range in degrees
+
+
+
+% Use \specialrequest to describe briefly any special or non-standard
+% usage of instrumentation. 
+\specialrequest
 
 
 % If you plan to submit any Target Tables for this run they must be
-% entered here.  Target Tables are required for all queue/service runs.
+% entered here.  Target Tables are required for all queue runs.
 
 % TARGET TABLES
 %
-% Target Tables are required for all queue or service
-% runs and are optional for classical observing.  Target
+% Target Tables are required for all queue runs and are
+% are optional for classically scheduled runs.  Target
 % Tables, if included, are associated with each run in the observing
 % run details section of the proposal form and must follow the 
 % \specialrequest in each section.
 %
-% WIYN Mini-Mosaic, WIYN Bench Spectrograph (Hydra and DensePak), and 
-% YALO tables require that all the fields in the target table be
+% CT-1.3m tables require that all the fields in the target table be
 % specified.  For other tables specific fields may be deleted EXCEPT 
 % for the \obscomment command as mentioned below.
 %
-% WIYN and YALO investigators should supply good coordinates
+% Queue investigators should supply good coordinates
 % with the \ra and \dec commands since these values may be used to
 % observe your fields.
 %
@@ -763,23 +769,23 @@ is provided for the TAC rather than for the HET queue observers.
 % /clearpage before the \begin{targettable} command for the new table.
 %
 %\begin{targettable}{}
-%\objid{}           % WIYN: specify a 3-digit number for each target.
+%\objid{}           % specify a 3-digit number for each target.
 %\object{}          % 20 characters maximum
 %\ra{}              % e.g., xx:xx:xx.x
 %\dec{}             % e.g., +-xx:xx:xx.x
 %\epoch{}           % e.g., 1950.3
 %\magnitude{}
 %\filter{}
-%\exptime{}         % WIYN: in seconds PER EXPOSURE
+%\exptime{}         % in seconds PER EXPOSURE
 %\nexposures{}      % Number of exposures
 %\moondays{}        % Days from new moon, use a number 0-14
 %\skycond{}         % "spec" or "phot"
 %\seeing{}          % max allowable PSF FWHM (arcsecs)
 %\obscomment{}      % 20 characters maximum - REQUIRED COMMAND
-%  - repeat target entry parameters as needed to complete Target Table -
+%  - repeat target entry parameters as needed to complete Table -
 %\end{targettable}
 
-\begin{targettable}{Run 1: HET/LRS}
+\begin{targettable}{Run 1: DECam}
 
 \objid{777}
 \object{NGC 7078}
@@ -787,7 +793,7 @@ is provided for the TAC rather than for the HET queue observers.
 \dec{12:10}
 \epoch{2000.0}
 \magnitude{18.6}
-\filter{GG-475}
+\filter{g}
 \exptime{1000}
 \nexposures{5}
 \moondays{4}
@@ -796,9 +802,11 @@ is provided for the TAC rather than for the HET queue observers.
 \obscomment{globular cluster}
 
 \objid{778}
+\filter{r}
 \obscomment{same cluster}
 
 \objid{779}
+\filter{i}
 \obscomment{}
 
 \end{targettable}
@@ -807,21 +815,10 @@ is provided for the TAC rather than for the HET queue observers.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\runid{2}{MMT/BCHAN}
+\runid{2}{AAT/AAOmega + 2dF}
 
 \technicaldescription
-For this run on the MMT Blue Channel Spectrograph, you may want to explain
-why you have selected this wavelength region, what velocity resolution
-and S/N ratio you need and why, and mention any special procedures for
-calibration and data reduction that you plan to use.  Again, justify
-the amount of time requested in detail.  You may also need to justify
-the specific restriction on days from new moon.
-
-In the instrument configuration table below, you should indicate which
-grating and order you will use, whether you will use cross dispersed
-mode with the echellette grating, which slit you expect to use, and
-the starting and ending wavelengths.  Note that a multi-slit mode
-is not available at this time.
+A small number of nights are available each semester with AAT and CHARA through exchange and public access programs.   Please see http://www.noao.edu/gateway/aat/ and http://www.naoo.edu/gateway/chara/ and the linked pages at these observatories for additional information.   Since these resources tend to be highly oversubscribed, it can be helpful to mention in the proposal if your program could benefit from a smaller partial allocation or make use of brighter time than requested.
 
 \begin{configuration}
 \filters{}
@@ -838,6 +835,9 @@ is not available at this time.
 \adc{}
 \end{configuration}
 
+\targetsra{12 to 17}			% RA range in hours
+\targetsdec{40 to 50}			% Dec. range in degrees
+
 \specialrequest
 
 
@@ -845,15 +845,20 @@ is not available at this time.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\runid{3}{KP-4m/RCSPM + T2KB}
+\runid{3}{CT-4m/COSMOS}
 
 \technicaldescription
-For this run on KPNO's Mayall 4-m telescope with the RC spectrograph
+For this run on KPNO's Mayall 4-m telescope with the KOSMOS spectrograph
 plus multislits, you might want to explain why you have chosen the 
 indicated grating and wavelength region, what your S/N ratio and resolution
 requirements are, how many multi-slit plates you will need, where the
 coordinates will come from, what you estimate the exposure times will
 be, and why you need the amount of time requested to complete the program.
+
+The ``Range of RA/Dec of Principal Targets'' fields should be filled
+in even if you'll also be listing specific coordinates in a target table.
+This information is used to constrain the scheduling process, so rounding
+is fine.
 
 \begin{configuration}
 \filters{GG-495}
@@ -870,9 +875,12 @@ be, and why you need the amount of time requested to complete the program.
 \adc{}
 \end{configuration}
 
+\targetsra{19 to 20}			% RA range in hours
+\targetsdec{10 to 20}			% Dec. range in degrees
+
 \specialrequest
 
-\begin{targettable}{Run 3: KP-4m/RCSPM + T2KB}
+\begin{targettable}{Run 3: CT-4m/COSMOS}
 
 \object{NGC 6205}
 \ra{19:45:12.8}
@@ -907,14 +915,9 @@ be, and why you need the amount of time requested to complete the program.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\runid{4}{WIYN/HYDRR + T2KC}
+\runid{4}{WIYN/HYDRR + STA1}
 
 \technicaldescription
-For WIYN queue programs (WIYN-2hr and WIYN-SYN), be sure to provide enough 
-technical details that
-the WIYN queue observers can carry out your program.  See 
-http://www.noao.edu/wiyn/obsprog/ for details.
-
 For this run with the red camera on Hydra, you may want to explain
 why you select a particular grating/wavelength region/resolution.
 For WIYN queue observations, you should describe in detail a
@@ -938,9 +941,12 @@ needs.  You should describe any special calibration requirements
 \adc{}
 \end{configuration}
 
+\targetsra{8 to 20}			% RA range in hours
+\targetsdec{-10 to 45}			% Dec. range in degrees
+
 \specialrequest
 
-\begin{targettable}{Run 4: WIYN/HYDRR + T2KC}
+\begin{targettable}{Run 4: WIYN/HYDRR + STA1}
 
 \objid{777}
 \object{NGC 6205}
@@ -966,49 +972,14 @@ needs.  You should describe any special calibration requirements
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\runid{5}{CT-1.5m/CSPEC + L1K}
-
-\technicaldescription
-For this run with CT-1.5m Cassegrain spectrograph,
-you may want to explain why you have selected this
-particular wavelength region, what velocity resolution you need,
-and why, and any special procedures for calibration and data
-reductions that you plan to use.  Again, justify the amount
-of time requested in detail.  You may also need to justify
-the specific restriction on days from new moon.
-
-\begin{configuration}
-\filters{}
-\grating{9}
-\order{}
-\crossdisperser{}       
-\slit{}
-\multislit{}            
-\wstart{3600}
-\wend{6500}
-\cable{}
-\corrector{}            
-\collimator{}             
-\adc{}
-\end{configuration}
-
-\specialrequest
-If you need non-sidereal tracking, for example, this might be a good
-place to note that fact.
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Detailed information as noted below must be provided for all runs up to
-% SIX runs.  Since Gemini runs must be specified through the Web form this
-% section only applies to non-Gemini runs - use the Web form to generate
-% detailed information and target tables for Gemini runs.  Target Tables
-% are required for WIYN-2hr, WIYN-SYN, and YALO runs but are
-% optional for other telescopes and instruments.
+% Detailed information as noted below must be provided for all runs 
+% up to SIX runs.  Since Gemini runs must be specified through the 
+% Web form this section only applies to non-Gemini runs - use the 
+% Web form to generate detailed information and target tables for 
+% Gemini runs.  Target Tables are required for queue runs but
+% are optional for classical observing.
 %
 %\runid{}{}
 %\technicaldescription
@@ -1028,43 +999,33 @@ place to note that fact.
 %\end{configuration}
 %\specialrequest    % remove and not use for HET runs
 %\begin{targettable}{}
-%\objid{}           % WIYN: specify a 3-digit number for each target
+%\objid{}           % specify a 3-digit number for each target
 %\object{}          % 20 characters maximum
 %\ra{}              % e.g., xx:xx:xx.x
 %\dec{}             % e.g., +-xx:xx:xx.x
 %\epoch{}           % e.g., 1950.3
 %\magnitude{}
 %\filter{}
-%\exptime{}         % WIYN: in seconds PER EXPOSURE
+%\exptime{}         % in seconds PER EXPOSURE
 %\nexposures{}      % Number of exposures
 %\moondays{}        % Days from new moon, use a number 0-14
 %\skycond{}         % "spec" or "phot"
 %\seeing{}          % max allowable PSF FWHM (arcsecs)
 %\obscomment{}      % 20 characters maximum - REQUIRED COMMAND
-%  - repeat target entry parameters as needed to complete Target Table -
+%  - repeat target entry parameters as needed to complete Table -
 %\end{targettable}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Please do not modify or delete this line.
 \end{document}
 
-% Send the completed proposal file to noaoprop-submit@noao.edu.
+% PROPOSAL SUBMISSION (if not submitting from the online proposal form):
 %
-% Figures should be submitted to noaoprop-submit@noao.edu AFTER
-% the proposal identification number has been returned to you
-% via email; this acknowledgement message will contain instructions
-% on what to do.  If you submit figures without supplying
-% the proper identifying information (per the email explanation), the
-% figures stand a reasonable chance of being lost.  You will receive
-% an acknowledgement message for each properly submitted figure.
 %
-% Expect these acknowledgement messages to be returned rather quickly.
-% If you have not received email from us within 10-15 minutes of
-% your submission contact us at noaoprop-help@noao.edu for assistance.
-% And as a final reminder you may track your proposal processing by
-% the proposal ID number at the following web page:
-%         http://www.noao.edu/cgi-bin/noaoprop/propstatus
+% Upload this completed proposal latex file and figures at: 
+%            https://www.noao.edu/noaoprop/submit/
+%
 %
 % Thank you for your interest in NOAO.  Contact us at
 % noaoprop-help@noao.edu if you have any suggestions or comments.
