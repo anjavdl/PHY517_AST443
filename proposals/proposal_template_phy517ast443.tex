@@ -6,7 +6,7 @@
 
 % Please do not modify or delete this line.
 \documentclass[11pt]{article}
-\usepackage{nprop30}
+\usepackage{phy517ast443}
 \usepackage{graphicx}
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
@@ -84,7 +84,105 @@
 \title{Catchy Title}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%%% Blind review - do not list your name
+%%%
+
+% INVESTIGATOR'S (PI AND CoI) INFORMATION BLOCKS
+%
+% Please give the PI's name (first name first followed by middle
+% initial and last name), affiliation, department and complete mailing
+% address, as well as an email address.  Also give a complete phone
+% number, and a number for a fax machine if you have access to one.
+% You must also indicate the principal investigator's status with one
+% of the one-letter codes inside the \invstatus{} curly braces, as
+% indicated below.
+%
+% The affil{}, \department{}, \address{} (use a comma separate list as
+% needed), \city{}, \state{}, \zipcode{}, and \country{} (for non-US
+% addresses) fields will be used together as your full postal mailing
+% address.  Please be sure this information is complete.  Note that
+% some institutions will not deliver postal mail if a department is
+% not included in the postal mailing address.  Non-US addresses should
+% include the country and any local postal codes.
+%
+% The fax number does not print on the form.
+%
+% For each CoI please include a name, affiliation, email address and
+% investigator's status within the \begin{CoI} and \end{CoI} lines.
+%
+% For each \invstatus{} field, please fill in the appropriate
+% investigator status code from the following list.  If the investigator
+% is a graduate student, indicate "T" if THIS proposal is related to a
+% thesis project, or "G" otherwise.  This code should represent the
+% status of the individuals at the time of the proposal submission.
+% This information is necessary to assist us with our required reporting
+% to the NSF.
+%
+% \invstatus{P} % investigator has obtained PhD or equivalent
+% \invstatus{T} % investigator is grad student, proposal is thesis
+% \invstatus{G} % investigator is grad student, proposal not thesis
+% \invstatus{U} % investigator is an undergraduate student
+% \invstatus{O} % investigator has other status (none of the above)
+%
+% DO NOT remove the \begin{PI} and \end{PI}.  Only one individual's
+% name per \name field is allowed.
+%
+% Investigator names will now appear on page 2 of the printed proposal.
+% Do not remove this line.
+%\investigators
+%
+%\begin{PI}
+%\name{George W. Bush}
+%\affil{Office of the President}
+%\department{}
+%\address{1600 Pennsylvania Avenue}
+%\city{Washington}
+%\state{DC}
+%\zipcode{20500}
+%\country{}
+%\email{president@whitehouse.gov}
+%\phone{(202) 456-1414}
+%\fax{(202) 456-2883}
+%\invstatus{O}
+%\end{PI}
+
+\begin{PI}
+\name{put your SBU ID here}
+\end{PI}
+
+%
+%\begin{CoI}
+%\name{Condoleeza Rice}
+%\affil{Dept. of State}
+%\email{secretary@state.gov}
+%\invstatus{P}
+%\end{CoI}
+%
+%\begin{CoI}
+%\name{Nancy Pelosi}
+%\affil{U.S. House of Representatives}
+%\email{sf.nancy@mail.house.gov}
+%\invstatus{O}
+%\end{CoI}
+
+%\begin{CoI}
+%\name{}
+%\affil{}
+%\email{}
+%\invstatus{}
+%\end{CoI}
+
+%\begin{CoI}
+%\name{}
+%\affil{}
+%\email{}
+%\invstatus{}
+%\end{CoI}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % ABSTRACT
 %
@@ -192,20 +290,20 @@ quickly understand why the observations you want to make are important.
 
 \begin{obsrun}
 \telescope{14-inch}
-\instrument{STL-1001E}
-\numnights{1}
+\instrument{imaging}
+\numnights{3x 2 hours}
 \lunardays{dark}
-\optimaldates{Oct. 27}
-\acceptabledates{Oct. 27, Nov. 7}
+\optimaldates{Oct}
+\acceptabledates{Oct - Nov}
 \end{obsrun}
 
 \begin{obsrun}
 \telescope{14-inch}
-\instrument{STL-1001E}
-\numnights{0.5}
+\instrument{spectrograph}
+\numnights{1 night}
 \lunardays{grey}
-\optimaldates{Oct-Nov}
-\acceptabledates{Oct-Nov}
+\optimaldates{Mar}
+\acceptabledates{Mar - Apr}
 \end{obsrun}
 
 \begin{obsrun}
@@ -257,100 +355,7 @@ quickly understand why the observations you want to make are important.
 % 
 % Please limit your text to six lines on the printed copy.
 
-\unusabledates{Run 1 needs to be scheduled to catch phase 0 of the eclipsing binary.  Run 2: please avoid Oct. 25 (proposers have a mid-term the next morning).}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%
-%%% Blind review - do not list your name
-%%%
-
-% INVESTIGATOR'S (PI AND CoI) INFORMATION BLOCKS
-%
-% Please give the PI's name (first name first followed by middle
-% initial and last name), affiliation, department and complete mailing
-% address, as well as an email address.  Also give a complete phone
-% number, and a number for a fax machine if you have access to one.
-% You must also indicate the principal investigator's status with one
-% of the one-letter codes inside the \invstatus{} curly braces, as
-% indicated below.
-%
-% The affil{}, \department{}, \address{} (use a comma separate list as
-% needed), \city{}, \state{}, \zipcode{}, and \country{} (for non-US
-% addresses) fields will be used together as your full postal mailing
-% address.  Please be sure this information is complete.  Note that
-% some institutions will not deliver postal mail if a department is
-% not included in the postal mailing address.  Non-US addresses should
-% include the country and any local postal codes.
-%
-% The fax number does not print on the form.
-%
-% For each CoI please include a name, affiliation, email address and
-% investigator's status within the \begin{CoI} and \end{CoI} lines.
-%
-% For each \invstatus{} field, please fill in the appropriate
-% investigator status code from the following list.  If the investigator
-% is a graduate student, indicate "T" if THIS proposal is related to a
-% thesis project, or "G" otherwise.  This code should represent the
-% status of the individuals at the time of the proposal submission.
-% This information is necessary to assist us with our required reporting
-% to the NSF.
-%
-% \invstatus{P} % investigator has obtained PhD or equivalent
-% \invstatus{T} % investigator is grad student, proposal is thesis
-% \invstatus{G} % investigator is grad student, proposal not thesis
-% \invstatus{U} % investigator is an undergraduate student
-% \invstatus{O} % investigator has other status (none of the above)
-%
-% DO NOT remove the \begin{PI} and \end{PI}.  Only one individual's
-% name per \name field is allowed.
-%
-% Investigator names will now appear on page 2 of the printed proposal.
-% Do not remove this line.
-%\investigators
-%
-%\begin{PI}
-%\name{George W. Bush}
-%\affil{Office of the President}
-%\department{}
-%\address{1600 Pennsylvania Avenue}
-%\city{Washington}
-%\state{DC}
-%\zipcode{20500}
-%\country{}
-%\email{president@whitehouse.gov}
-%\phone{(202) 456-1414}
-%\fax{(202) 456-2883}
-%\invstatus{O}
-%\end{PI}
-%
-%\begin{CoI}
-%\name{Condoleeza Rice}
-%\affil{Dept. of State}
-%\email{secretary@state.gov}
-%\invstatus{P}
-%\end{CoI}
-%
-%\begin{CoI}
-%\name{Nancy Pelosi}
-%\affil{U.S. House of Representatives}
-%\email{sf.nancy@mail.house.gov}
-%\invstatus{O}
-%\end{CoI}
-
-%\begin{CoI}
-%\name{}
-%\affil{}
-%\email{}
-%\invstatus{}
-%\end{CoI}
-
-%\begin{CoI}
-%\name{}
-%\affil{}
-%\email{}
-%\invstatus{}
-%\end{CoI}
+\unusabledates{Run 1 needs to be scheduled to catch phase 0 of the eclipsing binary, on Oct. 20, Oct. 25, Oct. 30 or Nov. 4.  Run 2: please avoid Apr. 1 (proposers have a mid-term the next morning).}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -483,7 +488,7 @@ strategy of your data analysis.  You need to convince the panel that your strate
   Comment on the observability of your targets.
 
 \item
-  Provide a detailed explanation of the exposure time estimate.  Also provide an estimate of how long your total observing session will take (with multiple exposures, calibration, etc.).
+  Provide a {\bf detailed explanation of the exposure time estimate}.  Where possible, scale from your existing data to calculate the required exposure time.  Also provide an estimate of how long your total observing session will take (with multiple exposures, calibration, etc.).
 
 \item
   Provide an explanation of which filter(s) you will use.
@@ -764,8 +769,8 @@ Create a separate ``run" page for each telescope/instrument combination being us
 \exptime{1000}
 \nexposures{5}
 \moondays{4}
-\skycond{phot}
-\seeing{1.5-2.0}
+%\skycond{phot}
+%\seeing{1.5-2.0}
 \obscomment{globular cluster}
 
 \objid{778}
@@ -779,39 +784,53 @@ Create a separate ``run" page for each telescope/instrument combination being us
 \end{targettable}
 
 
-\end{document}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
-%\runid{2}{AAT/AAOmega + 2dF}
-%
-%\technicaldescription
-%A small number of nights are available each semester with AAT and CHARA through exchange and public access programs.   Please see http://www.noao.edu/gateway/aat/ and http://www.naoo.edu/gateway/chara/ and the linked pages at these observatories for additional information.   Since these resources tend to be highly oversubscribed, it can be helpful to mention in the proposal if your program could benefit from a smaller partial allocation or make use of brighter time than requested.
-%
-%\begin{configuration}
-%\filters{}
-%\grating{300g/mm}
-%\order{1}
-%\crossdisperser{no}       
-%\slit{1"}
-%\multislit{}            
-%\wstart{4000}
-%\wend{9000}
-%\cable{}
-%\corrector{}            
-%\collimator{}             
-%\adc{}
-%\end{configuration}
-%
-%\targetsra{12 to 17}			% RA range in hours
-%\targetsdec{40 to 50}			% Dec. range in degrees
-%
-%\specialrequest
-%
-%
-%
+\runid{2}{14-inch/Spectrograph}
+
+\technicaldescription
+
+\begin{configuration}
+\filters{-}
+\grating{900l/mm}
+\order{-}
+\crossdisperser{-}       
+\slit{$25 \mu$m}
+\multislit{-}            
+\wstart{5300}
+\wend{6000}
+\cable{-}
+\corrector{-}            
+\collimator{-}             
+\adc{-}
+\end{configuration}
+
+\targetsra{12 to 17}			% RA range in hours
+\targetsdec{40 to 50}			% Dec. range in degrees
+
+\specialrequest
+
+\begin{targettable}{Run 2: Spectrograph}
+
+\objid{777}
+\object{NGC 7078}
+\ra{21:30:10}
+\dec{12:10:03}
+\epoch{2000.0}
+\magnitude{18.6}
+%\filter{g}
+\exptime{1000}
+\nexposures{5}
+\moondays{4}
+%\skycond{phot}
+%\seeing{1.5-2.0}
+\obscomment{}
+
+\end{targettable}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %
